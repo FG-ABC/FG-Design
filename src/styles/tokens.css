@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Color Palette ──────────────────────────────────────────────
+     Warm neutrals, not blue-gray. Soft accent that doesn't look
+     like the default indigo every Tailwind project ships with.
+  */
+
+  /* Neutrals */
+  --color-canvas:  #fafaf9;
+  --color-surface: #f5f4f2;
+  --color-overlay: #efefed;
+  --color-border:  #e4e3e0;
+  --color-muted:   #c9c7c3;
+  --color-subtle:  #8f8d89;
+  --color-base:    #3d3c3a;
+  --color-ink:     #1a1917;
+
+  /* Accent — warm slate-violet */
+  --color-accent-50:  #f4f3ff;
+  --color-accent-100: #ebe9fe;
+  --color-accent-200: #d5d2fd;
+  --color-accent-300: #b3aefb;
+  --color-accent-400: #8b83f7;
+  --color-accent-500: #6558f5;
+  --color-accent-600: #5346e8;
+  --color-accent-700: #4436d4;
+  --color-accent-800: #392dc4;
+  --color-accent-900: #2e249e;
+
+  /* Semantic */
+  --color-success:         #4ade80;
+  --color-success-surface: #f0fdf4;
+  --color-warning:         #fb923c;
+  --color-warning-surface: #fff7ed;
+  --color-danger:          #f87171;
+  --color-danger-surface:  #fef2f2;
+  --color-info:            #60a5fa;
+  --color-info-surface:    #eff6ff;
+
+  /* ─── Border Radius ──────────────────────────────────────────────*/
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* ─── Typography ─────────────────────────────────────────────────*/
+  --font-sans: "Inter", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md:   1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+
+  --tracking-tight: -0.02em;
+  --tracking-base:  -0.01em;
+  --tracking-wide:  0.02em;
+
+  /* ─── Component Sizing ───────────────────────────────────────────*/
+  --height-input:    36px;
+  --height-input-sm: 30px;
+  --height-input-lg: 44px;
+
+  /* ─── Shadows ────────────────────────────────────────────────────*/
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.10), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+  --shadow-xl: 0 24px 48px -8px rgb(0 0 0 / 0.14), 0 8px 16px -8px rgb(0 0 0 / 0.06);
+
+  /* ─── Motion ─────────────────────────────────────────────────────*/
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── Z-Index ────────────────────────────────────────────────────*/
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-tooltip:  600;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-base);
+    color: var(--color-base);
+    background-color: var(--color-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-ink);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+  }
+}
