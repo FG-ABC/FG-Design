@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @theme {
   /* ─── Color Palette ──────────────────────────────────────────────
      Warm neutrals, not blue-gray. Soft accent that doesn't look

@@ -19,7 +19,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./styles": "./dist/styles/globals.css"
+    "./styles": "./dist/styles/tokens.css"
   },
   "files": [
     "dist",
@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "postbuild": "cp -r src/styles dist/styles",
+    "postbuild": "cp -r src/styles/. dist/styles",
     "build:watch": "tsup --watch",
     "dev": "storybook dev -p 6006",
     "build:storybook": "storybook build",
