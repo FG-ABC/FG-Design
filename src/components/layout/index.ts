@@ -18,3 +18,6 @@ export type { SidebarProps } from "./sidebar";
 
 export { Breadcrumb } from "./breadcrumb";
 export type { BreadcrumbProps, BreadcrumbItem } from "./breadcrumb";
+
+export { Tabs } from "./tabs";
+export type { TabsProps, TabItem } from "./tabs";

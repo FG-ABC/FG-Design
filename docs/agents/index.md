@@ -90,6 +90,8 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 → [`Card`](components/card.md) — white bordered box with optional header/content/footer sections
 → [`Sidebar`](components/sidebar.md) — collapsible side nav with sections and items
 → [`Header`](components/header.md) — top bar layout primitive
+→ [`Breadcrumb`](components/breadcrumb.md) — navigation trail, collapsible with `maxItems`, custom separator
+→ [`Tabs`](components/tabs.md) — tabbed panels, `line` (underline) or `pill` variant
 
 ---
 
