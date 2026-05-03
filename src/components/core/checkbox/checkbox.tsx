@@ -12,7 +12,7 @@ export interface CheckboxProps
 export const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
->(({ className, label, indeterminate, id, ...props }, ref) => {
+>(({ className, label, indeterminate, id, required, ...props }, ref) => {
   const checkboxId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
   return (
@@ -20,6 +20,7 @@ export const Checkbox = React.forwardRef<
       <CheckboxPrimitive.Root
         ref={ref}
         id={checkboxId}
+        required={required}
         checked={indeterminate ? "indeterminate" : props.checked}
         className={cn(
           "h-4 w-4 shrink-0 rounded-[var(--radius-xs)]",
@@ -49,6 +50,7 @@ export const Checkbox = React.forwardRef<
           className="text-sm text-[var(--color-base)] leading-none cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
         >
           {label}
+          {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
         </label>
       )}
     </div>

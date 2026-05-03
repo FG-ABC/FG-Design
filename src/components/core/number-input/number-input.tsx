@@ -12,6 +12,7 @@ export interface NumberInputProps
   onChange?: (value: number | string) => void;
   mode?: NumberInputMode;
   maxDecimals?: number;
+  required?: boolean;
 }
 
 function formatNumber(value: number | string | undefined, mode: NumberInputMode, maxDecimals: number): string {
@@ -57,6 +58,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       maxDecimals = 2,
       onBlur,
       onFocus,
+      required,
       ...props
     },
     ref
@@ -120,6 +122,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         label={label}
         error={error}
         hint={hint}
+        required={required}
         type="text"
         inputMode={mode === "FLOATS" ? "decimal" : "numeric"}
         value={display}

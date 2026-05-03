@@ -7,10 +7,11 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   hint?: string;
   leftAdornment?: React.ReactNode;
   rightAdornment?: React.ReactNode;
+  required?: boolean;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, label, error, hint, leftAdornment, rightAdornment, id, ...props }, ref) => {
+  ({ className, label, error, hint, leftAdornment, rightAdornment, id, required, ...props }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
@@ -21,6 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className="text-sm font-medium text-[var(--color-ink)] leading-none"
           >
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <div className="relative flex items-center">
@@ -32,6 +34,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             id={inputId}
+            required={required}
             className={cn(
               "w-full h-[var(--height-input)] rounded-[var(--radius-md)]",
               "border border-[var(--color-border)] bg-[var(--color-field)]",

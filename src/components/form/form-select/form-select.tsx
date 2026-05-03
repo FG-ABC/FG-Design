@@ -22,10 +22,11 @@ export interface FormSelectProps {
   onValueChange?: (value: string) => void;
   disabled?: boolean;
   id?: string;
+  required?: boolean;
 }
 
 export const FormSelect = React.forwardRef<HTMLButtonElement, FormSelectProps>(
-  ({ label, error, hint, placeholder, options, value, onValueChange, disabled, id }, ref) => {
+  ({ label, error, hint, placeholder, options, value, onValueChange, disabled, id, required }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
@@ -36,6 +37,7 @@ export const FormSelect = React.forwardRef<HTMLButtonElement, FormSelectProps>(
             className="text-sm font-medium text-[var(--color-ink)] leading-none"
           >
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <Select value={value} onValueChange={onValueChange} disabled={disabled}>

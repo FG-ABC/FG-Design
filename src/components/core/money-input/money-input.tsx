@@ -10,6 +10,7 @@ export interface MoneyInputProps
   onChange?: (value: number | string) => void;
   currencySymbol?: string;
   maxDecimals?: number;
+  required?: boolean;
 }
 
 function formatMoney(value: number | string | undefined, maxDecimals: number): string {
@@ -48,6 +49,7 @@ export const MoneyInput = React.forwardRef<HTMLInputElement, MoneyInputProps>(
       maxDecimals = 2,
       onBlur,
       onFocus,
+      required,
       ...props
     },
     ref
@@ -102,6 +104,7 @@ export const MoneyInput = React.forwardRef<HTMLInputElement, MoneyInputProps>(
         label={label}
         error={error}
         hint={hint}
+        required={required}
         type="text"
         inputMode="decimal"
         value={display}

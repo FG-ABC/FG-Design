@@ -18,6 +18,7 @@ export interface CreatableAutocompleteProps {
   onChange?: (value: string | null) => void;
   disabled?: boolean;
   id?: string;
+  required?: boolean;
 }
 
 export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, CreatableAutocompleteProps>(
@@ -32,6 +33,7 @@ export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, Creatabl
       onChange,
       disabled,
       id,
+      required,
     },
     ref
   ) => {
@@ -121,6 +123,7 @@ export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, Creatabl
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium text-[var(--color-ink)] leading-none">
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <Popover.Root open={showDropdown}>

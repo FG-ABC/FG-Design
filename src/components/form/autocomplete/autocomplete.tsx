@@ -22,10 +22,11 @@ export interface AutocompleteProps {
   onSearch?: (query: string) => void;
   disabled?: boolean;
   id?: string;
+  required?: boolean;
 }
 
 export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>(
-  ({ label, error, hint, placeholder = "Search…", options, value, onChange, onSearch, disabled, id }, ref) => {
+  ({ label, error, hint, placeholder = "Search…", options, value, onChange, onSearch, disabled, id, required }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
     const isControlled = value !== undefined && onChange !== undefined;
     const [internalValue, setInternalValue] = React.useState<string | null>(null);
@@ -90,6 +91,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium text-[var(--color-ink)] leading-none">
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <Popover.Root open={open}>

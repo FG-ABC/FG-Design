@@ -7,10 +7,11 @@ export interface TextareaProps
   error?: string;
   hint?: string;
   resize?: "none" | "vertical" | "horizontal" | "both";
+  required?: boolean;
 }
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, label, error, hint, resize = "vertical", id, ...props }, ref) => {
+  ({ className, label, error, hint, resize = "vertical", id, required, ...props }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
@@ -21,11 +22,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             className="text-sm font-medium text-[var(--color-ink)] leading-none"
           >
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <textarea
           ref={ref}
           id={inputId}
+          required={required}
           className={cn(
             "w-full min-h-24 rounded-[var(--radius-md)]",
             "border border-[var(--color-border)] bg-[var(--color-field)]",

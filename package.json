@@ -1,5 +1,5 @@
 {
-  "name": "@fgd/ui",
+  "name": "@fg-abc/ui",
   "version": "0.1.0",
   "description": "Francis Glenn Design — soft, modern React component library",
   "license": "MIT",
@@ -26,6 +26,9 @@
     "CLAUDE.md",
     "docs/agents"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "sideEffects": [
     "**/*.css"
   ],

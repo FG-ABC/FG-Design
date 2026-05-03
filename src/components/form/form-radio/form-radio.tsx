@@ -12,10 +12,11 @@ export interface FormRadioProps {
   disabled?: boolean;
   orientation?: "horizontal" | "vertical";
   id?: string;
+  required?: boolean;
 }
 
 export const FormRadio = React.forwardRef<HTMLDivElement, FormRadioProps>(
-  ({ label, error, hint, options, value, onValueChange, disabled, orientation, id }, ref) => {
+  ({ label, error, hint, options, value, onValueChange, disabled, orientation, id, required }, ref) => {
     const groupId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
@@ -26,6 +27,7 @@ export const FormRadio = React.forwardRef<HTMLDivElement, FormRadioProps>(
             className="text-sm font-medium text-[var(--color-ink)] leading-none"
           >
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </span>
         )}
         <RadioGroup

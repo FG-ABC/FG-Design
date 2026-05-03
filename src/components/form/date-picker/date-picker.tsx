@@ -47,10 +47,11 @@ export interface DatePickerProps {
   min?: string;
   max?: string;
   id?: string;
+  required?: boolean;
 }
 
 export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
-  ({ label, error, hint, placeholder = "Select date…", value, onChange, disabled, min, max, id }, ref) => {
+  ({ label, error, hint, placeholder = "Select date…", value, onChange, disabled, min, max, id, required }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
     const isControlled = value !== undefined && onChange !== undefined;
     const [internalValue, setInternalValue] = React.useState<string | null>(null);
@@ -106,6 +107,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium text-[var(--color-ink)] leading-none">
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <Popover.Root open={open} onOpenChange={disabled ? undefined : setOpen}>

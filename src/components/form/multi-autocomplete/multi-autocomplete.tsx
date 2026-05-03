@@ -18,6 +18,7 @@ export interface MultiAutocompleteProps {
   onChange?: (value: string[]) => void;
   disabled?: boolean;
   id?: string;
+  required?: boolean;
 }
 
 export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocompleteProps>(
@@ -32,6 +33,7 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
       onChange,
       disabled,
       id,
+      required,
     },
     ref
   ) => {
@@ -101,6 +103,7 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
         {label && (
           <label htmlFor={inputId} className="text-sm font-medium text-[var(--color-ink)] leading-none">
             {label}
+            {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
         <Popover.Root open={open}>
