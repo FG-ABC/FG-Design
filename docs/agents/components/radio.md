@@ -3,7 +3,7 @@
 Radio group for mutually exclusive options. Use when there are 2–5 choices that should all be visible at once.
 
 ```tsx
-import { FormRadio } from "@fgd/ui";
+import { FormRadio } from "@fg-abc/ui";
 
 const OPTIONS = [
   { label: "Public", value: "public", description: "Anyone can view this." },

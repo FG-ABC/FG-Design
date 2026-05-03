@@ -3,7 +3,7 @@
 Collapsible side navigation.
 
 ```tsx
-import { Sidebar, SidebarSection, SidebarLabel, SidebarItem } from "@fgd/ui";
+import { Sidebar, SidebarSection, SidebarLabel, SidebarItem } from "@fg-abc/ui";
 import { LayoutDashboard, Users, Settings } from "lucide-react";
 
 const [collapsed, setCollapsed] = React.useState(false);

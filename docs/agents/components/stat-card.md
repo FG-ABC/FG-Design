@@ -3,7 +3,7 @@
 KPI / metric display with optional trend delta and icon.
 
 ```tsx
-import { StatCard } from "@fgd/ui";
+import { StatCard } from "@fg-abc/ui";
 import { Users, DollarSign } from "lucide-react";
 
 // Basic

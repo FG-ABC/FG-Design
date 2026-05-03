@@ -3,7 +3,7 @@
 Hover tooltip wrapping any element.
 
 ```tsx
-import { Tooltip } from "@fgd/ui";
+import { Tooltip } from "@fg-abc/ui";
 
 <Tooltip content="Save your changes">
   <Button size="icon"><Save className="h-4 w-4" /></Button>

@@ -3,7 +3,7 @@
 User avatar with image and fallback initials.
 
 ```tsx
-import { Avatar } from "@fgd/ui";
+import { Avatar } from "@fg-abc/ui";
 
 // Image with fallback
 <Avatar src="https://…/photo.jpg" alt="Alice Martin" />

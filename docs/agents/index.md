@@ -1,9 +1,9 @@
-# @fgd/ui — Component Index
+# @fg-abc/ui — Component Index
 
 Pick the right component for your use case, then read its doc for the minimal working example.
 
-All imports: `import { ComponentName } from "@fgd/ui"`
-Styles: `import "@fgd/ui/styles"` once in your app entry.
+All imports: `import { ComponentName } from "@fg-abc/ui"`
+Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 
 ---
 

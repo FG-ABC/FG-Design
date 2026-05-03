@@ -3,7 +3,7 @@
 Search input with debounce or explicit submit button mode.
 
 ```tsx
-import { SearchBar } from "@fgd/ui";
+import { SearchBar } from "@fg-abc/ui";
 
 // Debounce mode (default) — fires onSearch 300ms after typing stops
 <SearchBar onSearch={(q) => setQuery(q)} placeholder="Search…" />

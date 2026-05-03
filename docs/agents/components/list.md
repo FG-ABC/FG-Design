@@ -3,7 +3,7 @@
 Vertical list layout for simple item collections.
 
 ```tsx
-import { List, ListItem } from "@fgd/ui";
+import { List, ListItem } from "@fg-abc/ui";
 
 // Gapped list
 <List>

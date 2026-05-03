@@ -8,7 +8,7 @@ Only reach for these when you need complete structural control — e.g. a summar
 import {
   Table, TableHeader, TableBody, TableFooter,
   TableHead, TableRow, TableCell, TableCaption
-} from "@fgd/ui";
+} from "@fg-abc/ui";
 
 <Table>
   <TableHeader>

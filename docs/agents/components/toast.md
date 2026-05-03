@@ -5,7 +5,7 @@ Notification toasts via Sonner. Mount `Toaster` once; call `toast()` anywhere.
 ## Setup (once per app)
 
 ```tsx
-import { Toaster } from "@fgd/ui";
+import { Toaster } from "@fg-abc/ui";
 
 // In your root layout or _app.tsx
 <Toaster position="bottom-right" />
@@ -14,7 +14,7 @@ import { Toaster } from "@fgd/ui";
 ## Usage
 
 ```tsx
-import { toast } from "@fgd/ui";
+import { toast } from "@fg-abc/ui";
 
 toast("Message saved");
 toast.success("Profile updated");
@@ -48,4 +48,4 @@ toast.success("Done!");
 
 ## Notes
 - `toast` is re-exported directly from sonner — all sonner options are available
-- The `Toaster` component applies @fgd/ui styling tokens automatically — don't style toasts manually
+- The `Toaster` component applies @fg-abc/ui styling tokens automatically — don't style toasts manually

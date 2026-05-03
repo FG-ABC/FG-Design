@@ -16,7 +16,7 @@ All accept `{ label: string; value: string }[]` as `options`.
 ## Autocomplete (single)
 
 ```tsx
-import { Autocomplete } from "@fgd/ui";
+import { Autocomplete } from "@fg-abc/ui";
 
 const OPTIONS = [
   { label: "Engineering", value: "eng" },
@@ -48,7 +48,7 @@ const [value, setValue] = React.useState<string | null>(null);
 `value` is `string[]`. Supports paste (splits on comma/newline/tab).
 
 ```tsx
-import { MultiAutocomplete } from "@fgd/ui";
+import { MultiAutocomplete } from "@fg-abc/ui";
 
 const [values, setValues] = React.useState<string[]>([]);
 <MultiAutocomplete label="Tags" options={OPTIONS} value={values} onChange={setValues} />
@@ -61,7 +61,7 @@ const [values, setValues] = React.useState<string[]>([]);
 Shows a "Create '…'" option when the typed query doesn't match. `value` is the raw string (either an option value or a freeform string).
 
 ```tsx
-import { CreatableAutocomplete } from "@fgd/ui";
+import { CreatableAutocomplete } from "@fg-abc/ui";
 
 const [value, setValue] = React.useState<string | null>(null);
 <CreatableAutocomplete label="Category" options={OPTIONS} value={value} onChange={setValue} />
@@ -74,7 +74,7 @@ const [value, setValue] = React.useState<string | null>(null);
 Combines multi-select with creation. Deduplicates case-insensitively.
 
 ```tsx
-import { CreatableMultiAutocomplete } from "@fgd/ui";
+import { CreatableMultiAutocomplete } from "@fg-abc/ui";
 
 const [values, setValues] = React.useState<string[]>([]);
 <CreatableMultiAutocomplete label="Labels" options={OPTIONS} value={values} onChange={setValues} />

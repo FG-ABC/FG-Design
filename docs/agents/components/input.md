@@ -3,7 +3,7 @@
 Single-line text field with optional label, error, hint, and adornments.
 
 ```tsx
-import { Input } from "@fgd/ui";
+import { Input } from "@fg-abc/ui";
 
 <Input label="Email" placeholder="you@example.com" />
 <Input label="Email" error="Invalid email address." />

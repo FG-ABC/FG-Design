@@ -7,7 +7,7 @@ Boolean input controls.
 ## Checkbox
 
 ```tsx
-import { Checkbox } from "@fgd/ui";
+import { Checkbox } from "@fg-abc/ui";
 
 // With label (auto-generates matching id)
 <Checkbox label="Accept terms" />
@@ -24,7 +24,7 @@ import { Checkbox } from "@fgd/ui";
 Adds `error` and `hint` support to `Checkbox`.
 
 ```tsx
-import { FormCheckbox } from "@fgd/ui";
+import { FormCheckbox } from "@fg-abc/ui";
 
 <FormCheckbox label="I agree to the terms" error="You must accept the terms." />
 <FormCheckbox label="Subscribe to updates" hint="You can unsubscribe at any time." />
@@ -46,7 +46,7 @@ import { FormCheckbox } from "@fgd/ui";
 On/off switch. Use instead of `Checkbox` when the action takes immediate effect (e.g. enable notifications) rather than being part of a form submit.
 
 ```tsx
-import { Toggle } from "@fgd/ui";
+import { Toggle } from "@fg-abc/ui";
 
 <Toggle label="Dark mode" />
 <Toggle label="Notifications" checked={enabled} onCheckedChange={setEnabled} />

@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { Check, ChevronDown, Plus, X } from "lucide-react";

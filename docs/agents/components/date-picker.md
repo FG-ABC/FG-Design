@@ -9,7 +9,7 @@ Calendar popover pickers. No external date library required.
 Value is a `"YYYY-MM-DD"` string.
 
 ```tsx
-import { DatePicker } from "@fgd/ui";
+import { DatePicker } from "@fg-abc/ui";
 
 // Uncontrolled
 <DatePicker label="Start date" />
@@ -49,7 +49,7 @@ const [date, setDate] = React.useState<string | null>(null);
 Value is a `"YYYY-MM-DDTHH:mm"` string (local time, no seconds).
 
 ```tsx
-import { DateTimePicker } from "@fgd/ui";
+import { DateTimePicker } from "@fg-abc/ui";
 
 const [dt, setDt] = React.useState<string | null>(null);
 <DateTimePicker label="Scheduled at" value={dt ?? undefined} onChange={setDt} />

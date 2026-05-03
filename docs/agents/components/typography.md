@@ -3,7 +3,7 @@
 Five components covering the full text hierarchy. All use Inter Variable with design tokens — never hardcode sizes or colors.
 
 ```tsx
-import { Display, Heading, Text, Caption, LinkText } from "@fgd/ui";
+import { Display, Heading, Text, Caption, LinkText } from "@fg-abc/ui";
 ```
 
 ---

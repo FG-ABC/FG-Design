@@ -3,7 +3,7 @@
 Dropdown select for short, fixed option lists. Built on Radix Select.
 
 ```tsx
-import { FormSelect } from "@fgd/ui";
+import { FormSelect } from "@fg-abc/ui";
 
 const OPTIONS = [
   { label: "Active", value: "active" },

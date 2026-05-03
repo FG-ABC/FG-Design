@@ -3,7 +3,7 @@
 Multi-line text input. Same label/error/hint pattern as `Input`.
 
 ```tsx
-import { Textarea } from "@fgd/ui";
+import { Textarea } from "@fg-abc/ui";
 
 <Textarea label="Bio" placeholder="Tell us about yourself…" />
 <Textarea label="Notes" hint="Max 500 characters." />
@@ -22,5 +22,5 @@ import { Textarea } from "@fgd/ui";
 Extends all `HTMLTextareaElement` attributes (`rows`, `placeholder`, `disabled`, `value`, `onChange`, etc.).
 
 ## Notes
-- `FormTextarea` is an alias exported from `@fgd/ui/form` — same component
+- `FormTextarea` is an alias exported from `@fg-abc/ui/form` — same component
 - Default `min-height` is `96px`; override with `className="min-h-48"` etc.

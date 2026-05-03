@@ -7,7 +7,7 @@ import {
   DropdownMenu, DropdownMenuTrigger, DropdownMenuContent,
   DropdownMenuItem, DropdownMenuSeparator, DropdownMenuLabel,
   Button
-} from "@fgd/ui";
+} from "@fg-abc/ui";
 ```
 
 ## Basic usage
@@ -47,7 +47,7 @@ import {
 ## With keyboard shortcut
 
 ```tsx
-import { DropdownMenuShortcut } from "@fgd/ui";
+import { DropdownMenuShortcut } from "@fg-abc/ui";
 
 <DropdownMenuItem>
   New window <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
@@ -57,7 +57,7 @@ import { DropdownMenuShortcut } from "@fgd/ui";
 ## Submenu
 
 ```tsx
-import { DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@fgd/ui";
+import { DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@fg-abc/ui";
 
 <DropdownMenuSub>
   <DropdownMenuSubTrigger>More options</DropdownMenuSubTrigger>

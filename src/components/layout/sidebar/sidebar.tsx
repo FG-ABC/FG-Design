@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { cn } from "@/lib/utils";

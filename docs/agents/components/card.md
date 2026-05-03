@@ -3,7 +3,7 @@
 White bordered container. The primary surface for grouping content.
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@fgd/ui";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@fg-abc/ui";
 
 // Basic
 <Card>

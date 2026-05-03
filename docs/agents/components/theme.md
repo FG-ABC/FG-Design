@@ -6,7 +6,7 @@ Manages light/dark/system theme. Sets `data-theme` on `<html>`, persists to `loc
 
 ```tsx
 // app entry
-import { ThemeProvider } from "@fgd/ui";
+import { ThemeProvider } from "@fg-abc/ui";
 
 export function App() {
   return (
@@ -17,7 +17,7 @@ export function App() {
 }
 
 // anywhere in the tree
-import { useTheme } from "@fgd/ui";
+import { useTheme } from "@fg-abc/ui";
 
 function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme();

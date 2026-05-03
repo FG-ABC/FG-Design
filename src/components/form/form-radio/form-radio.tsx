@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { RadioGroup } from "@/components/core/radio-group";
 import type { RadioGroupOption } from "@/components/core/radio-group";

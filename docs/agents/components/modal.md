@@ -6,7 +6,7 @@ Dialog overlay built on Radix Dialog. Traps focus, handles Escape, blocks scroll
 import {
   Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle,
   ModalDescription, ModalBody, ModalFooter, ModalClose, Button
-} from "@fgd/ui";
+} from "@fg-abc/ui";
 ```
 
 ## Basic usage

@@ -3,7 +3,7 @@
 Pill label for status, tags, and counts.
 
 ```tsx
-import { Badge } from "@fgd/ui";
+import { Badge } from "@fg-abc/ui";
 
 <Badge>Default</Badge>
 <Badge variant="accent">New</Badge>

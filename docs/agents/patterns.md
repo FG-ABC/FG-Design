@@ -1,6 +1,6 @@
 # Common Patterns
 
-Reusable compositions from @fgd/ui components. Copy and adapt.
+Reusable compositions from @fg-abc/ui components. Copy and adapt.
 
 ---
 
@@ -9,7 +9,7 @@ Reusable compositions from @fgd/ui components. Copy and adapt.
 Stack fields with a consistent gap. The submit row always goes last with right-aligned actions.
 
 ```tsx
-import { Input, Textarea, FormSelect, Button } from "@fgd/ui";
+import { Input, Textarea, FormSelect, Button } from "@fg-abc/ui";
 
 function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
   const [name, setName] = React.useState("");
@@ -58,7 +58,7 @@ function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
 The DataGrid is purely controlled — you own sort, page, and data state.
 
 ```tsx
-import { DataGrid, ColumnDef, SortState, PaginationState } from "@fgd/ui";
+import { DataGrid, ColumnDef, SortState, PaginationState } from "@fg-abc/ui";
 
 interface Row { id: number; name: string; status: string; }
 
@@ -108,7 +108,7 @@ function MyTable() {
 Use `datagrid` mode when rows contain editable cells. Cell renderers return inputs; the DataGrid handles add/delete.
 
 ```tsx
-import { DataGrid, ColumnDef } from "@fgd/ui";
+import { DataGrid, ColumnDef } from "@fg-abc/ui";
 
 interface LineItem { id: number; name: string; qty: number; }
 
@@ -169,7 +169,7 @@ function LineItemGrid() {
 ## Confirmation modal
 
 ```tsx
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalDescription, ModalBody, ModalFooter, Button } from "@fgd/ui";
+import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalDescription, ModalBody, ModalFooter, Button } from "@fg-abc/ui";
 
 function DeleteButton({ onConfirm }: { onConfirm: () => void }) {
   return (
@@ -202,11 +202,11 @@ Mount `Toaster` once at your app root, then call `toast()` anywhere.
 
 ```tsx
 // app root
-import { Toaster } from "@fgd/ui";
+import { Toaster } from "@fg-abc/ui";
 <Toaster position="bottom-right" />
 
 // anywhere
-import { toast } from "@fgd/ui";
+import { toast } from "@fg-abc/ui";
 toast.success("Saved successfully");
 toast.error("Something went wrong");
 toast("Info message");
@@ -222,7 +222,7 @@ toast("With action", {
 When options come from an API, pass `onSearch` and control the `options` array yourself.
 
 ```tsx
-import { Autocomplete } from "@fgd/ui";
+import { Autocomplete } from "@fg-abc/ui";
 
 function UserPicker() {
   const [value, setValue] = React.useState<string | null>(null);
@@ -251,7 +251,7 @@ function UserPicker() {
 ## Stat card row
 
 ```tsx
-import { StatCard } from "@fgd/ui";
+import { StatCard } from "@fg-abc/ui";
 import { Users } from "lucide-react";
 
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -266,7 +266,7 @@ import { Users } from "lucide-react";
 ## Search + table
 
 ```tsx
-import { SearchBar, DataGrid } from "@fgd/ui";
+import { SearchBar, DataGrid } from "@fg-abc/ui";
 
 function SearchableTable() {
   const [query, setQuery] = React.useState("");

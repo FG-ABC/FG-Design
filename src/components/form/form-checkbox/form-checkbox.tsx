@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { Checkbox } from "@/components/core/checkbox";
 import type { CheckboxProps } from "@/components/core/checkbox";

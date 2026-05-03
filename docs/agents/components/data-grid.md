@@ -3,7 +3,7 @@
 Full-featured data table. Purely controlled — the component holds no data, sort, or page state itself.
 
 ```tsx
-import { DataGrid, ColumnDef } from "@fgd/ui";
+import { DataGrid, ColumnDef } from "@fg-abc/ui";
 ```
 
 ## Minimal example

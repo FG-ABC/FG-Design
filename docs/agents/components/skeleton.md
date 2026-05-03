@@ -3,7 +3,7 @@
 Animated loading placeholder. Use during async data fetches.
 
 ```tsx
-import { Skeleton } from "@fgd/ui";
+import { Skeleton } from "@fg-abc/ui";
 
 // Rectangle (default) — for cards, images, boxes
 <Skeleton className="h-32 w-full" />

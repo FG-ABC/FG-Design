@@ -7,7 +7,7 @@ Formatted number fields built on top of `Input`.
 Three modes controlled by `numberMode`:
 
 ```tsx
-import { NumberInput } from "@fgd/ui";
+import { NumberInput } from "@fg-abc/ui";
 
 // Positive integers only (default)
 <NumberInput label="Quantity" numberMode="POSITIVE_INTEGERS" />
@@ -37,7 +37,7 @@ Controlled via `value` (string) + `onChange`.
 Currency input with a `$` prefix adornment. Always decimal.
 
 ```tsx
-import { MoneyInput } from "@fgd/ui";
+import { MoneyInput } from "@fg-abc/ui";
 
 <MoneyInput label="Amount" />
 <MoneyInput label="Amount" currencySymbol="€" />

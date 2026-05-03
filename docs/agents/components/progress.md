@@ -3,7 +3,7 @@
 Horizontal progress bar.
 
 ```tsx
-import { Progress } from "@fgd/ui";
+import { Progress } from "@fg-abc/ui";
 
 <Progress value={65} />
 <Progress value={100} color="success" />

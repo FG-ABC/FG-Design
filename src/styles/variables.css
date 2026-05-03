@@ -1,0 +1,135 @@
+/* Plain CSS custom properties — no Tailwind syntax. Safe to import in Tailwind v3 or any CSS pipeline. */
+:root {
+  /* Neutrals */
+  --color-canvas:   #fafaf9;
+  --color-surface:  #f5f4f2;
+  --color-overlay:  #efefed;
+  --color-border:   #e4e3e0;
+  --color-muted:    #c9c7c3;
+  --color-subtle:   #8f8d89;
+  --color-base:     #3d3c3a;
+  --color-ink:      #1a1917;
+  --color-field:    #ffffff;
+  --color-elevated: #ffffff;
+
+  /* Accent — forest green */
+  --color-accent-50:  #f0faf4;
+  --color-accent-100: #dcf2e6;
+  --color-accent-200: #bbe5ce;
+  --color-accent-300: #86cfaa;
+  --color-accent-400: #4db082;
+  --color-accent-500: #2d6a4f;
+  --color-accent-600: #245c43;
+  --color-accent-700: #1b4d38;
+  --color-accent-800: #153d2c;
+  --color-accent-900: #0f2e21;
+
+  /* Semantic */
+  --color-success:         #16a34a;
+  --color-success-surface: #f0fdf4;
+  --color-warning:         #d97706;
+  --color-warning-surface: #fffbeb;
+  --color-danger:          #dc2626;
+  --color-danger-surface:  #fef2f2;
+  --color-info:            #2563eb;
+  --color-info-surface:    #eff6ff;
+
+  /* Border Radius */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: "Inter", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md:   1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+
+  --tracking-tight: -0.02em;
+  --tracking-base:  -0.01em;
+  --tracking-wide:  0.02em;
+
+  /* Component Sizing */
+  --height-input:    36px;
+  --height-input-sm: 30px;
+  --height-input-lg: 44px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.10), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+  --shadow-xl: 0 24px 48px -8px rgb(0 0 0 / 0.14), 0 8px 16px -8px rgb(0 0 0 / 0.06);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-Index */
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-tooltip:  600;
+}
+
+[data-theme="dark"] {
+  /* Neutrals — warm dark scale */
+  --color-canvas:   #111510;
+  --color-surface:  #181d16;
+  --color-overlay:  #1f261c;
+  --color-border:   #2a3326;
+  --color-muted:    #4a5e47;
+  --color-subtle:   #7a9174;
+  --color-base:     #c8d5c4;
+  --color-ink:      #e8efe5;
+  --color-field:    #1f261c;
+  --color-elevated: #1f261c;
+
+  /* Accent — lighter end of the ramp for dark bg readability */
+  --color-accent-50:  #0f2e21;
+  --color-accent-100: #153d2c;
+  --color-accent-200: #1b4d38;
+  --color-accent-300: #245c43;
+  --color-accent-400: #2d6a4f;
+  --color-accent-500: #4db082;
+  --color-accent-600: #86cfaa;
+  --color-accent-700: #bbe5ce;
+  --color-accent-800: #dcf2e6;
+  --color-accent-900: #f0faf4;
+
+  /* Semantic — slightly lighter for dark surface contrast */
+  --color-success:         #4ade80;
+  --color-success-surface: #052e16;
+  --color-warning:         #fbbf24;
+  --color-warning-surface: #1c1004;
+  --color-danger:          #f87171;
+  --color-danger-surface:  #2d0a0a;
+  --color-info:            #60a5fa;
+  --color-info-surface:    #0c1a3d;
+
+  /* Shadows — stronger on dark */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.5), 0 4px 8px -4px rgb(0 0 0 / 0.3);
+  --shadow-xl: 0 24px 48px -8px rgb(0 0 0 / 0.6), 0 8px 16px -8px rgb(0 0 0 / 0.3);
+}

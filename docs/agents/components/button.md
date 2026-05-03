@@ -3,7 +3,7 @@
 General-purpose action trigger.
 
 ```tsx
-import { Button } from "@fgd/ui";
+import { Button } from "@fg-abc/ui";
 
 <Button>Save</Button>
 <Button variant="outline">Cancel</Button>
@@ -36,12 +36,19 @@ Disables the button and shows a spinner. Keep `children` — it's used for acces
 ```
 
 ## Polymorphic (`asChild`)
-Renders as whatever child you pass. Use for router links.
+Renders as whatever child you pass. Use for router links. Pass exactly one child element — `asChild` delegates to Radix `Slot`, which requires a single React element child.
 ```tsx
 <Button asChild>
   <a href="/dashboard">Dashboard</a>
 </Button>
+
+// Next.js
+<Button asChild size="sm">
+  <Link href="/dashboard">Dashboard</Link>
+</Button>
 ```
+
+`loading` is ignored when `asChild` is true — the child element manages its own layout.
 
 ## Props
 | Prop | Type | Default |

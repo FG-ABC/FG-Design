@@ -2,6 +2,18 @@
 
 All tokens are CSS custom properties defined in `src/styles/tokens.css` under `@theme`. Tailwind v4 exposes them as utility classes and arbitrary values.
 
+## Importing styles
+
+**Tailwind v4 project** — use the full stylesheet:
+```css
+@import "@fg-abc/ui/styles";
+```
+
+**Tailwind v3 project (or plain CSS)** — use the variables-only file (no Tailwind syntax):
+```css
+@import "@fg-abc/ui/styles/variables";
+```
+
 **Rule: never hardcode hex values or raw pixel sizes. Always reference a token.**
 
 ```tsx
