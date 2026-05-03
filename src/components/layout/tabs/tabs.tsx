@@ -80,7 +80,7 @@ export const Tabs = React.forwardRef<
       <TabsPrimitive.Content
         key={item.value}
         value={item.value}
-        className="focus-visible:outline-none"
+        className="focus-visible:outline-none mt-4"
       >
         {item.content}
       </TabsPrimitive.Content>

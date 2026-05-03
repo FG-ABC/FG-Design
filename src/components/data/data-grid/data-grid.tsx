@@ -398,7 +398,7 @@ export function DataGrid<TRow>({
             </Button>
           )}
           {datagrid && onAddRow && (
-            <Button size="sm" variant="outline" onClick={onAddRow}>
+            <Button type="button" size="sm" variant="outline" onClick={onAddRow}>
               <Plus className="h-4 w-4" />
               Add row
             </Button>
