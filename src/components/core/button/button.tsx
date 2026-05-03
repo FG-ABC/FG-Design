@@ -30,7 +30,7 @@ const buttonVariants = cva(
         ],
         outline: [
           "border border-[var(--color-border)]",
-          "bg-white text-[var(--color-base)]",
+          "bg-[var(--color-elevated)] text-[var(--color-base)]",
           "shadow-[var(--shadow-xs)]",
           "hover:bg-[var(--color-surface)] hover:border-[var(--color-muted)]",
         ],

@@ -12,7 +12,7 @@ const Command = React.forwardRef<
     ref={ref}
     className={cn(
       "flex h-full w-full flex-col overflow-hidden",
-      "rounded-[var(--radius-xl)] bg-white",
+      "rounded-[var(--radius-xl)] bg-[var(--color-elevated)]",
       "text-[var(--color-base)]",
       className
     )}

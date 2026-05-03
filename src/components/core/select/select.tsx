@@ -16,7 +16,7 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       "flex h-[var(--height-input)] w-full items-center justify-between gap-2",
       "rounded-[var(--radius-md)] border border-[var(--color-border)]",
-      "bg-white px-3 text-sm shadow-[var(--shadow-xs)]",
+      "bg-[var(--color-elevated)] px-3 text-sm shadow-[var(--shadow-xs)]",
       "text-[var(--color-ink)] placeholder:text-[var(--color-muted)]",
       "transition-all duration-[var(--duration-fast)]",
       "focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-500)] focus:ring-offset-0",
@@ -74,7 +74,7 @@ const SelectContent = React.forwardRef<
       className={cn(
         "relative z-[var(--z-dropdown)] min-w-[8rem] overflow-hidden",
         "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-        "bg-white shadow-[var(--shadow-lg)]",
+        "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",

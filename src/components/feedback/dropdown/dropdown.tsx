@@ -41,7 +41,7 @@ const DropdownMenuSubContent = React.forwardRef<
     className={cn(
       "z-[var(--z-dropdown)] min-w-[8rem] overflow-hidden p-1.5",
       "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-      "bg-white shadow-[var(--shadow-lg)]",
+      "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
       "data-[state=open]:animate-in data-[state=closed]:animate-out",
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
@@ -64,7 +64,7 @@ const DropdownMenuContent = React.forwardRef<
       className={cn(
         "z-[var(--z-dropdown)] min-w-[8rem] overflow-hidden p-1.5",
         "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-        "bg-white shadow-[var(--shadow-lg)]",
+        "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",

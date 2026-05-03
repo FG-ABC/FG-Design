@@ -3,6 +3,7 @@ import "../src/styles/globals.css";
 
 const preview: Preview = {
   parameters: {
+    viewMode: "docs",
     backgrounds: {
       default: "canvas",
       values: [

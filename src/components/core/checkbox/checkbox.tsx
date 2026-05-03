@@ -23,7 +23,7 @@ export const Checkbox = React.forwardRef<
         checked={indeterminate ? "indeterminate" : props.checked}
         className={cn(
           "h-4 w-4 shrink-0 rounded-[var(--radius-xs)]",
-          "border border-[var(--color-border)] bg-white",
+          "border border-[var(--color-border)] bg-[var(--color-field)]",
           "shadow-[var(--shadow-xs)]",
           "transition-all duration-[var(--duration-fast)]",
           "focus-visible:outline-none focus-visible:ring-2",

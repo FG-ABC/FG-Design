@@ -34,7 +34,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             id={inputId}
             className={cn(
               "w-full h-[var(--height-input)] rounded-[var(--radius-md)]",
-              "border border-[var(--color-border)] bg-white",
+              "border border-[var(--color-border)] bg-[var(--color-field)]",
               "px-3 text-sm text-[var(--color-ink)]",
               "placeholder:text-[var(--color-muted)]",
               "shadow-[var(--shadow-xs)]",

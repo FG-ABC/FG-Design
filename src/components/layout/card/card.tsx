@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const cardVariants = cva(
   [
     "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-    "bg-white shadow-[var(--shadow-sm)]",
+    "bg-[var(--color-elevated)] shadow-[var(--shadow-sm)]",
   ],
   {
     variants: {

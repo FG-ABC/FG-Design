@@ -11,7 +11,7 @@ export const Header = React.forwardRef<HTMLElement, HeaderProps>(
     <header
       ref={ref}
       className={cn(
-        "w-full h-14 flex items-center px-4 bg-white/80 backdrop-blur-md",
+        "w-full h-14 flex items-center px-4 bg-[var(--color-elevated)]/80 backdrop-blur-md",
         "z-[var(--z-sticky)]",
         sticky && "sticky top-0",
         bordered && "border-b border-[var(--color-border)]",

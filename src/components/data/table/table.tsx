@@ -29,7 +29,7 @@ const TableBody = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes
   ({ className, ...props }, ref) => (
     <tbody
       ref={ref}
-      className={cn("divide-y divide-[var(--color-border)] bg-white", className)}
+      className={cn("divide-y divide-[var(--color-border)] bg-[var(--color-elevated)]", className)}
       {...props}
     />
   )

@@ -11,7 +11,7 @@ export const Toaster = (props: ToastProps) => (
         toast: [
           "group toast",
           "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-          "bg-white shadow-[var(--shadow-lg)]",
+          "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
           "text-[var(--color-base)] text-sm",
           "p-4",
         ].join(" "),

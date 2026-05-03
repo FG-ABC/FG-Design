@@ -68,7 +68,7 @@ export const SidebarItem = React.forwardRef<
       "transition-colors duration-[var(--duration-fast)]",
       "hover:bg-[var(--color-overlay)] focus-visible:outline-none focus-visible:ring-2",
       "focus-visible:ring-[var(--color-accent-500)]",
-      active && "bg-white text-[var(--color-ink)] shadow-[var(--shadow-xs)]",
+      active && "bg-[var(--color-elevated)] text-[var(--color-ink)] shadow-[var(--shadow-xs)]",
       className
     )}
     {...props}

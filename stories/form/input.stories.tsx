@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "@/components/core/input";
 import { Mail, Search } from "lucide-react";
+import * as React from "react";
 
 const meta: Meta<typeof Input> = {
-  title: "Core/Input",
+  title: "Form/Input",
   component: Input,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
@@ -29,7 +30,7 @@ export const WithError: Story = {
   args: { label: "Email", placeholder: "you@example.com", error: "Please enter a valid email address." },
 };
 
-export const WithAdornments: Story = {
+export const WithLeftAdornment: Story = {
   args: {
     label: "Search",
     placeholder: "Search anything…",

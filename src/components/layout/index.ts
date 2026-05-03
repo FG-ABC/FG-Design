@@ -15,3 +15,6 @@ export type { HeaderProps } from "./header";
 
 export { Sidebar, SidebarSection, SidebarLabel, SidebarItem } from "./sidebar";
 export type { SidebarProps } from "./sidebar";
+
+export { Breadcrumb } from "./breadcrumb";
+export type { BreadcrumbProps, BreadcrumbItem } from "./breadcrumb";

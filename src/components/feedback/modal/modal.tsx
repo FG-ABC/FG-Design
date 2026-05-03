@@ -30,7 +30,7 @@ const modalContentVariants = cva(
   [
     "fixed z-[var(--z-modal)] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
     "w-full rounded-[var(--radius-xl)]",
-    "border border-[var(--color-border)] bg-white",
+    "border border-[var(--color-border)] bg-[var(--color-elevated)]",
     "shadow-[var(--shadow-xl)]",
     "data-[state=open]:animate-in data-[state=closed]:animate-out",
     "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",

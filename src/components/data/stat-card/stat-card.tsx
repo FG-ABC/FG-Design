@@ -19,7 +19,7 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
         ref={ref}
         className={cn(
           "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
-          "bg-white p-5 shadow-[var(--shadow-sm)]",
+          "bg-[var(--color-elevated)] p-5 shadow-[var(--shadow-sm)]",
           className
         )}
         {...props}
