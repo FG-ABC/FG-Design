@@ -500,3 +500,37 @@ export const KitchenSink: Story = {
     );
   },
 };
+
+export const MinHeight: Story = {
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <div>
+        <p className="text-xs text-[var(--color-muted)] mb-2">Few rows — space fills to 400px</p>
+        <DataGrid
+          columns={BASE_COLUMNS}
+          rows={EMPLOYEES.slice(0, 2)}
+          rowKey={(r: Employee) => r.id}
+          minHeight={400}
+        />
+      </div>
+      <div>
+        <p className="text-xs text-[var(--color-muted)] mb-2">Empty — space fills to 400px</p>
+        <DataGrid
+          columns={BASE_COLUMNS}
+          rows={[]}
+          rowKey={(r: Employee) => r.id}
+          minHeight={400}
+        />
+      </div>
+      <div>
+        <p className="text-xs text-[var(--color-muted)] mb-2">Rows exceed minHeight — grows naturally</p>
+        <DataGrid
+          columns={BASE_COLUMNS}
+          rows={EMPLOYEES}
+          rowKey={(r: Employee) => r.id}
+          minHeight={200}
+        />
+      </div>
+    </div>
+  ),
+};

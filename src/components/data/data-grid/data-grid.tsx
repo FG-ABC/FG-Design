@@ -133,6 +133,9 @@ export interface DataGridProps<TRow> {
   /** Validation errors keyed by rowKey → columnKey → error string. */
   cellErrors?: Record<string | number, Record<string, string>>;
 
+  /** Minimum height of the table body in px. Empty space is shown below rows when they don't fill it. */
+  minHeight?: number;
+
   className?: string;
 }
 
@@ -257,6 +260,7 @@ export function DataGrid<TRow>({
   onAddRow,
   onDeleteRow,
   cellErrors,
+  minHeight,
   className,
 }: DataGridProps<TRow>) {
   // ── Column widths (resizing)
@@ -403,8 +407,11 @@ export function DataGrid<TRow>({
       </div>
 
       {/* ── Table wrapper ── */}
-      <div className="w-full overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border)]">
-        <table className="w-full caption-bottom text-sm border-collapse">
+      <div
+        className="w-full overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border)]"
+        style={minHeight ? { minHeight } : undefined}
+      >
+        <table className={cn("w-full caption-bottom text-sm border-collapse", minHeight && "h-full")}>
           {/* ── Colgroup for resizing ── */}
           <colgroup>
             {hasSelection && <col style={{ width: 40 }} />}
@@ -613,6 +620,18 @@ export function DataGrid<TRow>({
                   </tr>
                 );
               })
+            )}
+            {/* Spacer row — absorbs leftover height when minHeight is set */}
+            {minHeight && !loading && (
+              <tr className="h-full">
+                <td
+                  colSpan={
+                    columns.length +
+                    (hasSelection ? 1 : 0) +
+                    (hasActions ? 1 : 0)
+                  }
+                />
+              </tr>
             )}
           </tbody>
 
