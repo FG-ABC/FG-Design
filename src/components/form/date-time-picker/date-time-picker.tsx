@@ -58,10 +58,13 @@ export interface DateTimePickerProps {
   onChange?: (value: string | null) => void;
   disabled?: boolean;
   id?: string;
+  /** Set to true when rendering inside a Modal so the popover content stays within the dialog's
+   *  focus trap and pointer events are not blocked. Defaults to false. */
+  modal?: boolean;
 }
 
 export const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
-  ({ label, error, hint, placeholder = "Select date & time…", value, onChange, disabled, id }, ref) => {
+  ({ label, error, hint, placeholder = "Select date & time…", value, onChange, disabled, id, modal = false }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
     const isControlled = value !== undefined && onChange !== undefined;
     const [internalValue, setInternalValue] = React.useState<string | null>(null);
@@ -163,7 +166,7 @@ export const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePicker
             {label}
           </label>
         )}
-        <Popover.Root open={open} onOpenChange={disabled ? undefined : setOpen} modal={false}>
+        <Popover.Root open={open} onOpenChange={disabled ? undefined : setOpen} modal={modal}>
           <Popover.Trigger asChild>
             <button
               ref={ref}
