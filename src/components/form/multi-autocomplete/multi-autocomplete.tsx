@@ -107,7 +107,7 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
             {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
-        <Popover.Root open={open}>
+        <Popover.Root open={open} onOpenChange={setOpen} modal={false}>
           <Popover.Anchor asChild>
             <div
               onBlur={handleBlur}
@@ -180,8 +180,6 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
           <Popover.Portal>
             <Popover.Content
               onOpenAutoFocus={(e) => e.preventDefault()}
-              onInteractOutside={(e) => e.preventDefault()}
-              onFocusOutside={(e) => e.preventDefault()}
               onMouseDown={() => { mouseDownInDropdown.current = true; }}
               onMouseUp={() => { mouseDownInDropdown.current = false; }}
               side="bottom"

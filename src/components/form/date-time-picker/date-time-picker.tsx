@@ -163,7 +163,7 @@ export const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePicker
             {label}
           </label>
         )}
-        <Popover.Root open={open} onOpenChange={disabled ? undefined : setOpen}>
+        <Popover.Root open={open} onOpenChange={disabled ? undefined : setOpen} modal={false}>
           <Popover.Trigger asChild>
             <button
               ref={ref}

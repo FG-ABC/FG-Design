@@ -95,7 +95,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
             {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
-        <Popover.Root open={open}>
+        <Popover.Root open={open} onOpenChange={setOpen} modal={false}>
           <Popover.Anchor asChild>
             <div className="relative flex items-center" onBlur={handleBlur}>
               <input
@@ -147,8 +147,6 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
           <Popover.Portal>
             <Popover.Content
               onOpenAutoFocus={(e) => e.preventDefault()}
-              onInteractOutside={(e) => e.preventDefault()}
-              onFocusOutside={(e) => e.preventDefault()}
               side="bottom"
               align="start"
               sideOffset={4}

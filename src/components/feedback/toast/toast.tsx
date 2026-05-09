@@ -29,7 +29,7 @@ export const Toaster = (props: ToastProps) => (
           "hover:bg-[var(--color-overlay)]",
         ].join(" "),
         success: "border-[var(--color-success)]/20 bg-[var(--color-success-surface)]",
-        error: "border-[var(--color-danger)]/20 bg-[var(--color-danger-surface)]",
+        error: "border-[var(--color-danger)]/20 bg-[var(--color-danger-surface)] [&>div]:text-[var(--color-danger)]",
         warning: "border-[var(--color-warning)]/20 bg-[var(--color-warning-surface)]",
         info: "border-[var(--color-info)]/20 bg-[var(--color-info-surface)]",
       },
