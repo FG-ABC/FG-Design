@@ -113,10 +113,11 @@ All tokens are CSS custom properties defined in `src/styles/tokens.css` under `@
 ## Z-index scale
 | Token | Value | Use for |
 |---|---|---|
-| `--z-dropdown` | 100 | Popovers, selects, dropdowns |
+| `--z-dropdown` | 100 | Page-level dropdowns (not inside modals) |
 | `--z-sticky` | 200 | Sticky headers |
 | `--z-overlay` | 300 | Modal overlay |
 | `--z-modal` | 400 | Modal content |
+| `--z-popover` | 450 | Popovers, selects, autocompletes, date pickers (float above modals) |
 | `--z-toast` | 500 | Toasts |
 | `--z-tooltip` | 600 | Tooltips (always on top) |
 

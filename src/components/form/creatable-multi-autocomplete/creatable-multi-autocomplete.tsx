@@ -216,7 +216,7 @@ export const CreatableMultiAutocomplete = React.forwardRef<HTMLInputElement, Cre
               align="start"
               sideOffset={4}
               className={cn(
-                "z-[var(--z-dropdown)] w-[var(--radix-popover-trigger-width)]",
+                "z-[var(--z-popover)] w-[var(--radix-popover-trigger-width)]",
                 "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
                 "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)] p-1.5",
                 "data-[state=open]:animate-in data-[state=closed]:animate-out",

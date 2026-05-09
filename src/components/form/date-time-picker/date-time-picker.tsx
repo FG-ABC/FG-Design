@@ -209,7 +209,7 @@ export const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePicker
               align="start"
               sideOffset={4}
               className={cn(
-                "z-[var(--z-dropdown)]",
+                "z-[var(--z-popover)]",
                 "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
                 "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
                 "data-[state=open]:animate-in data-[state=closed]:animate-out",

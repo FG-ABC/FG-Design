@@ -157,7 +157,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               align="start"
               sideOffset={4}
               className={cn(
-                "z-[var(--z-modal)] w-72",
+                "z-[var(--z-popover)] w-72",
                 "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
                 "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)] p-3",
                 "data-[state=open]:animate-in data-[state=closed]:animate-out",
