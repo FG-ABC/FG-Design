@@ -20,6 +20,9 @@ export interface CreatableAutocompleteProps {
   disabled?: boolean;
   id?: string;
   required?: boolean;
+  /** Set to true when rendering inside a Modal so the popover content stays within the dialog's
+   *  focus trap and pointer events are not blocked. Defaults to false. */
+  modal?: boolean;
 }
 
 export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, CreatableAutocompleteProps>(
@@ -35,6 +38,7 @@ export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, Creatabl
       disabled,
       id,
       required,
+      modal = false,
     },
     ref
   ) => {
@@ -127,7 +131,7 @@ export const CreatableAutocomplete = React.forwardRef<HTMLInputElement, Creatabl
             {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
-        <Popover.Root open={showDropdown} onOpenChange={setOpen} modal={false}>
+        <Popover.Root open={showDropdown} onOpenChange={setOpen} modal={modal}>
           <Popover.Anchor asChild>
             <div className="relative flex items-center" onBlur={handleBlur}>
               <input

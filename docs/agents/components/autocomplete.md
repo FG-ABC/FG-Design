@@ -94,8 +94,10 @@ const [values, setValues] = React.useState<string[]>([]);
 | `hint` | `string` | — |
 | `placeholder` | `string` | `Search…` |
 | `disabled` | `boolean` | `false` |
+| `modal` | `boolean` | `false` |
 
 ## Notes
 - When `onSearch` is provided, client-side filtering is disabled — you own the `options` array
 - `onChange` fires with `null` (single) or `[]` (multi) when cleared
 - The clear (×) icon appears when a value is selected
+- **Inside a `Modal`:** pass `modal={true}` — without it, Radix Dialog's focus trap blocks pointer events on the popover (which renders in a portal outside the dialog). With `modal={true}` the popover participates in the same modal context and clicks work correctly.

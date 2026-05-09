@@ -20,6 +20,9 @@ export interface MultiAutocompleteProps {
   disabled?: boolean;
   id?: string;
   required?: boolean;
+  /** Set to true when rendering inside a Modal so the popover content stays within the dialog's
+   *  focus trap and pointer events are not blocked. Defaults to false. */
+  modal?: boolean;
 }
 
 export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocompleteProps>(
@@ -35,6 +38,7 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
       disabled,
       id,
       required,
+      modal = false,
     },
     ref
   ) => {
@@ -107,7 +111,7 @@ export const MultiAutocomplete = React.forwardRef<HTMLInputElement, MultiAutocom
             {required && <span className="ml-0.5 text-[var(--color-danger)]">*</span>}
           </label>
         )}
-        <Popover.Root open={open} onOpenChange={setOpen} modal={false}>
+        <Popover.Root open={open} onOpenChange={setOpen} modal={modal}>
           <Popover.Anchor asChild>
             <div
               onBlur={handleBlur}
