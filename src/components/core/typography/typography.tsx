@@ -171,34 +171,43 @@ export interface LinkTextProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
 
 export const LinkText = React.forwardRef<HTMLAnchorElement, LinkTextProps>(
   ({ asChild = false, external = false, size = "base", className, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : "a";
     const externalProps = external
       ? { target: "_blank" as const, rel: "noopener noreferrer" }
       : {};
 
+    const resolvedClassName = cn(
+      "inline-flex items-center gap-0.5",
+      "font-medium text-[var(--color-accent-500)]",
+      "underline underline-offset-2 decoration-[var(--color-accent-300)]",
+      "hover:text-[var(--color-accent-600)] hover:decoration-[var(--color-accent-500)]",
+      "transition-colors duration-[var(--duration-fast)]",
+      "focus-visible:outline-none focus-visible:ring-2",
+      "focus-visible:ring-[var(--color-accent-500)] focus-visible:ring-offset-1 rounded-[var(--radius-xs)]",
+      size === "xs"   && "text-[var(--text-xs)]",
+      size === "sm"   && "text-[var(--text-sm)]",
+      size === "base" && "text-[var(--text-base)]",
+      size === "lg"   && "text-[var(--text-lg)]",
+      className
+    );
+
+    if (asChild) {
+      return (
+        <Slot ref={ref} className={resolvedClassName} {...props}>
+          {children}
+        </Slot>
+      );
+    }
+
     return (
-      <Comp
+      <a
         ref={ref}
-        className={cn(
-          "inline-flex items-center gap-0.5",
-          "font-medium text-[var(--color-accent-500)]",
-          "underline underline-offset-2 decoration-[var(--color-accent-300)]",
-          "hover:text-[var(--color-accent-600)] hover:decoration-[var(--color-accent-500)]",
-          "transition-colors duration-[var(--duration-fast)]",
-          "focus-visible:outline-none focus-visible:ring-2",
-          "focus-visible:ring-[var(--color-accent-500)] focus-visible:ring-offset-1 rounded-[var(--radius-xs)]",
-          size === "xs"   && "text-[var(--text-xs)]",
-          size === "sm"   && "text-[var(--text-sm)]",
-          size === "base" && "text-[var(--text-base)]",
-          size === "lg"   && "text-[var(--text-lg)]",
-          className
-        )}
+        className={resolvedClassName}
         {...externalProps}
         {...props}
       >
         {children}
         {external && <ExternalLink className="h-3 w-3 shrink-0 opacity-70" />}
-      </Comp>
+      </a>
     );
   }
 );

@@ -211,6 +211,19 @@ export const LinkTextAsChild: StoryObj = {
   ),
 };
 
+export const LinkTextAsChildWithSize: StoryObj = {
+  name: "LinkText — asChild with size prop",
+  render: () => (
+    <Text size="sm">
+      Read the{" "}
+      <LinkText asChild size="sm">
+        <a href="/docs">documentation</a>
+      </LinkText>
+      {" "}for details.
+    </Text>
+  ),
+};
+
 // ─── Composition ─────────────────────────────────────────────────────────────
 
 export const PageHeader: StoryObj = {
