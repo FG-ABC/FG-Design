@@ -62,11 +62,16 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 → [`List` / `ListItem`](components/list.md) — vertical list, divided or gapped
 
 ### Displaying a loading state
+→ [`Spinner`](components/spinner.md) — circular indeterminate spinner, sm/md/lg sizes
+→ [`LinearProgress`](components/linear-progress.md) — horizontal indeterminate bar, use above tables during background refetch
 → [`Skeleton`](components/skeleton.md) — rect, text, or circle pulse shapes
 → `loading` prop on `Button`, `SearchBar`, `DataGrid`
 
+**Decision rule:** Use `Spinner` when a whole area is blocked on initial load. Use `LinearProgress` when content is visible but refetching. Use `Skeleton` for shape-preserving placeholders.
+
 ### Displaying progress
-→ [`Progress`](components/progress.md) — horizontal bar, accent/success/warning/danger colors
+→ [`Progress`](components/progress.md) — horizontal bar with a known value, accent/success/warning/danger colors
+→ [`LinearProgress`](components/linear-progress.md) — indeterminate bar for unknown duration (background fetches)
 
 ### Labelling or tagging something
 → [`Badge`](components/badge.md) — pill label, semantic color variants
@@ -82,6 +87,15 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 
 ### Inline hint on hover
 → [`Tooltip`](components/tooltip.md) — wraps any element, 4 sides
+
+### Validation feedback
+→ [`ValidationList` / `ValidationItem`](components/validation-list.md) — live pass/fail rule list (password requirements, etc.)
+
+### Persistent inline status messages
+→ [`Banner`](components/banner.md) — info/success/warning/danger callout with optional title, body, and action button
+
+### Media galleries
+→ [`ImageCarousel`](components/image-carousel.md) — main image + thumbnail strip, autoplay, prev/next navigation
 
 ### Notifications
 → [`Toaster`](components/toast.md) — mount once; call `toast()` from anywhere

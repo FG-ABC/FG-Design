@@ -3,9 +3,9 @@ import { Toaster as Sonner } from "sonner";
 
 export type ToastProps = React.ComponentProps<typeof Sonner>;
 
-export const Toaster = (props: ToastProps) => (
+export const Toaster = ({ theme = "system", ...props }: ToastProps) => (
   <Sonner
-    theme="light"
+    theme={theme}
     className="toaster group"
     toastOptions={{
       classNames: {

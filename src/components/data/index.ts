@@ -1,3 +1,12 @@
+export { Spinner } from "./spinner";
+export type { SpinnerProps } from "./spinner";
+
+export { LinearProgress } from "./linear-progress";
+export type { LinearProgressProps } from "./linear-progress";
+
+export { ImageCarousel } from "./image-carousel";
+export type { ImageCarouselProps, ImageCarouselImage } from "./image-carousel";
+
 export { Skeleton } from "./skeleton";
 export type { SkeletonProps } from "./skeleton";
 
