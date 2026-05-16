@@ -73,7 +73,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-[var(--z-popover)] min-w-[8rem] overflow-hidden",
+        "relative z-[var(--z-popover)] min-w-[8rem] overflow-hidden max-h-[var(--radix-select-content-available-height)]",
         "rounded-[var(--radius-lg)] border border-[var(--color-border)]",
         "bg-[var(--color-elevated)] shadow-[var(--shadow-lg)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -93,6 +93,7 @@ const SelectContent = React.forwardRef<
           position === "popper" &&
             "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
         )}
+        style={{ maxHeight: "var(--radix-select-content-available-height)" }}
       >
         {children}
       </SelectPrimitive.Viewport>

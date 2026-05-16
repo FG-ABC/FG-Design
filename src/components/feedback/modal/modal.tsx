@@ -30,6 +30,7 @@ ModalOverlay.displayName = DialogPrimitive.Overlay.displayName;
 const modalContentVariants = cva(
   [
     "fixed z-[var(--z-modal)] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
+    "flex flex-col max-h-[calc(100dvh-4rem)]",
     "w-full rounded-[var(--radius-xl)]",
     "border border-[var(--color-border)] bg-[var(--color-elevated)]",
     "shadow-[var(--shadow-xl)]",
@@ -125,7 +126,7 @@ const ModalDescription = React.forwardRef<
 ModalDescription.displayName = DialogPrimitive.Description.displayName;
 
 const ModalBody = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("px-6 py-4", className)} {...props} />
+  <div className={cn("flex-1 overflow-y-auto px-6 py-4", className)} {...props} />
 );
 ModalBody.displayName = "ModalBody";
 
