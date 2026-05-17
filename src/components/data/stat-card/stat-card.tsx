@@ -2,6 +2,7 @@
 import * as React from "react";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/data/skeleton";
 
 export interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -9,10 +10,11 @@ export interface StatCardProps extends React.HTMLAttributes<HTMLDivElement> {
   delta?: number;
   deltaLabel?: string;
   icon?: React.ReactNode;
+  loading?: boolean;
 }
 
 export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
-  ({ className, label, value, delta, deltaLabel, icon, ...props }, ref) => {
+  ({ className, label, value, delta, deltaLabel, icon, loading = false, ...props }, ref) => {
     const isPositive = delta !== undefined && delta >= 0;
 
     return (
@@ -30,10 +32,12 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
             <p className="text-xs font-medium text-[var(--color-subtle)] uppercase tracking-wide truncate">
               {label}
             </p>
-            <p className="text-2xl font-semibold text-[var(--color-ink)] leading-tight">
-              {value}
-            </p>
-            {delta !== undefined && (
+            <div className="text-2xl font-semibold text-[var(--color-ink)] leading-tight">
+              {loading ? <Skeleton shape="text" className="h-7 w-24" /> : value}
+            </div>
+            {loading ? (
+              <Skeleton shape="text" className="w-20" />
+            ) : delta !== undefined && (
               <div className="flex items-center gap-1">
                 {isPositive ? (
                   <TrendingUp className="h-3.5 w-3.5 text-[var(--color-success)]" />

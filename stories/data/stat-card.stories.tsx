@@ -34,3 +34,16 @@ export const WithIcon: Story = {
 export const Negative: Story = {
   args: { label: "Churn rate", value: "2.3%", delta: -0.4, deltaLabel: "vs last month" },
 };
+
+export const Loading: Story = {
+  args: { label: "Monthly revenue", value: "", loading: true },
+};
+
+export const LoadingWithIcon: Story = {
+  args: {
+    label: "Active users",
+    value: "",
+    loading: true,
+    icon: <Users className="h-5 w-5" />,
+  },
+};

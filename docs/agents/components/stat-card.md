@@ -39,6 +39,9 @@ import { Users, DollarSign } from "lucide-react";
 </div>
 ```
 
+// Loading state — skeletons rendered internally
+<StatCard label="Revenue" value="" loading />
+
 ## Props
 | Prop | Type | Default |
 |---|---|---|
@@ -47,9 +50,11 @@ import { Users, DollarSign } from "lucide-react";
 | `delta` | `number` | — |
 | `deltaLabel` | `string` | — |
 | `icon` | `ReactNode` | — |
+| `loading` | `boolean` | `false` |
 
 ## Notes
 - Positive `delta` → green with TrendingUp icon
 - Negative `delta` → red with TrendingDown icon
 - Icon is displayed in a small `--color-accent-50` box — use a 20px Lucide icon
 - `value` accepts `ReactNode` — you can pass a `Badge` or formatted number
+- Use `loading` to show skeleton placeholders for value and delta; do not pass a `<Skeleton>` as `value` (the value container is a `<div>`, not a `<p>`, so block children are valid, but the `loading` prop is cleaner and handles delta too)
