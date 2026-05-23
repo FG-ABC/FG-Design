@@ -1,2 +1,14 @@
-export { Sidebar, SidebarSection, SidebarLabel, SidebarItem } from "./sidebar";
-export type { SidebarProps } from "./sidebar";
+export {
+  Sidebar,
+  SidebarTrigger,
+  SidebarSection,
+  SidebarLabel,
+  SidebarItem,
+  SidebarGroup,
+} from "./sidebar";
+export type {
+  SidebarProps,
+  SidebarTriggerProps,
+  SidebarItemProps,
+  SidebarGroupProps,
+} from "./sidebar";

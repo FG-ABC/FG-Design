@@ -21,7 +21,8 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 
 ### User needs to enter text
 → [`Input`](components/input.md) — single-line, with optional label/error/hint/adornments
-→ [`Textarea`](components/textarea.md) — multi-line text
+→ [`Textarea`](components/textarea.md) — multi-line text, fixed height with resize handle
+→ [`TextareaAuto`](components/textarea-auto.md) — grows with content, Enter always inserts a newline (never submits)
 → [`SearchBar`](components/search-bar.md) — search with debounce or button mode
 
 ### User needs to enter a number
@@ -102,7 +103,7 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 
 ### Page structure
 → [`Card`](components/card.md) — white bordered box with optional header/content/footer sections
-→ [`Sidebar`](components/sidebar.md) — collapsible side nav with sections and items
+→ [`Sidebar`](components/sidebar.md) — collapsible side nav with icon-rail mode, expandable groups (`SidebarGroup`), and a mobile slide-in drawer; use `SidebarTrigger` in a top bar for mobile
 → [`Header`](components/header.md) — top bar layout primitive
 → [`Breadcrumb`](components/breadcrumb.md) — navigation trail, collapsible with `maxItems`, custom separator
 → [`Tabs`](components/tabs.md) — tabbed panels, `line` (underline) or `pill` variant

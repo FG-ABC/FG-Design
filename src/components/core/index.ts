@@ -44,6 +44,9 @@ export type { RadioGroupProps, RadioGroupOption } from "./radio-group";
 export { Textarea } from "./textarea";
 export type { TextareaProps } from "./textarea";
 
+export { TextareaAuto } from "./textarea-auto";
+export type { TextareaAutoProps } from "./textarea-auto";
+
 export { SearchBar } from "./search-bar";
 export type { SearchBarProps } from "./search-bar";
 
