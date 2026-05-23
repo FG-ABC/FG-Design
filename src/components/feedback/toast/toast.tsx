@@ -7,6 +7,13 @@ export const Toaster = ({ theme = "system", ...props }: ToastProps) => (
   <Sonner
     theme={theme}
     className="toaster group"
+    style={
+      {
+        "--normal-bg": "var(--color-elevated)",
+        "--normal-border": "var(--color-border)",
+        "--normal-text": "var(--color-ink)",
+      } as React.CSSProperties
+    }
     toastOptions={{
       classNames: {
         toast: [
