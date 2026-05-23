@@ -36,10 +36,10 @@ All tokens are CSS custom properties defined in `src/styles/tokens.css` under `@
 | `--color-surface` | `#f5f4f2` | Subtle backgrounds, hover states |
 | `--color-overlay` | `#efefed` | Deeper backgrounds, skeleton |
 | `--color-border` | `#e4e3e0` | All borders, dividers |
-| `--color-muted` | `#c9c7c3` | Placeholder text, disabled icons |
-| `--color-subtle` | `#8f8d89` | Secondary text, icons |
+| `--color-muted` | `#c9c7c3` | Placeholder text, disabled icons — **never use for content text** |
+| `--color-subtle` | `#8f8d89` | Interactive icons, decorative elements — **only use for content text when explicitly de-emphasised** |
 | `--color-base` | `#3d3c3a` | Default body text |
-| `--color-ink` | `#1a1917` | Headings, high-emphasis text |
+| `--color-ink` | `#1a1917` | Headings, high-emphasis text — **prefer for all content text** |
 
 ### Accent (forest green)
 | Token | Use for |

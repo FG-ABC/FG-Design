@@ -62,13 +62,14 @@ Body copy. Covers size, tone, weight, and mono (tabular figures).
 <Text size="sm">Small body</Text>
 <Text size="xs">Extra small</Text>
 
-// Tone (color)
+// Tone (color) — default and ink cover almost all cases
 <Text tone="ink">High emphasis</Text>
-<Text tone="default">Standard body</Text>  {/* default */}
-<Text tone="muted">Secondary</Text>
+<Text tone="default">Standard body</Text>  {/* default — prefer this */}
 <Text tone="accent">Brand color</Text>
 <Text tone="success">Positive</Text>
 <Text tone="danger">Error/warning</Text>
+// Only use muted/subtle when explicitly asked for de-emphasis — never as a default
+<Text tone="muted">De-emphasised secondary content</Text>
 
 // Weight
 <Text weight="normal">Normal</Text>   {/* default */}
@@ -106,13 +107,14 @@ Smallest text level. Use for timestamps, metadata, table annotations, and helper
 
 Renders as `<span>` by default — safe inside block and inline contexts. Override with `as`.
 
-| `tone` | Color token |
-|---|---|
-| `muted` (default) | `--color-muted` |
-| `subtle` | `--color-subtle` |
-| `danger` | `--color-danger` |
-| `success` | `--color-success` |
-| `accent` | `--color-accent-500` |
+| `tone` | Color token | When to use |
+|---|---|---|
+| `default` | `--color-ink` | **Prefer this** — timestamps, metadata, annotations |
+| `muted` | `--color-muted` | Only when explicitly de-emphasised |
+| `subtle` | `--color-subtle` | Only when explicitly de-emphasised |
+| `danger` | `--color-danger` | Validation errors |
+| `success` | `--color-success` | Confirmations |
+| `accent` | `--color-accent-500` | Brand highlights |
 
 ---
 
@@ -150,13 +152,13 @@ Inline link. Always reads as interactive: accent color + underline. External lin
 // Page header
 <div className="flex flex-col gap-1.5">
   <Heading level={1}>Team members</Heading>
-  <Text tone="muted">Manage who has access to this workspace.</Text>
+  <Text>Manage who has access to this workspace.</Text>
 </div>
 
 // Section with metadata
 <div className="flex items-baseline justify-between">
   <Text weight="medium">Invoice #1042</Text>
-  <Caption tone="subtle">Issued Jan 15, 2026</Caption>
+  <Caption>Issued Jan 15, 2026</Caption>
 </div>
 
 // Number in a table cell (use mono for column alignment)

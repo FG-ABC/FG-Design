@@ -113,6 +113,9 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 ### Managing light/dark theme
 → [`ThemeProvider / useTheme`](components/theme.md) — wrap app once; call `useTheme()` to read or toggle
 
+### Accessible mode (larger text, bigger tap targets)
+→ [`AccessibleModeProvider / useAccessibleMode`](components/accessible-mode.md) — wrap app once; call `useAccessibleMode()` to read or toggle; CSS handles all scaling automatically
+
 ---
 
 ## Global rules
