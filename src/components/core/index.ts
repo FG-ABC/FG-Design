@@ -51,3 +51,4 @@ export { SearchBar } from "./search-bar";
 export type { SearchBarProps } from "./search-bar";
 
 export { ThemeProvider, useTheme } from "./theme";
+export { AccessibleModeProvider, useAccessibleMode } from "./accessible-mode";
