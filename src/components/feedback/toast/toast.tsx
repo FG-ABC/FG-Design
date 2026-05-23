@@ -24,14 +24,14 @@ export const Toaster = ({ theme = "system", ...props }: ToastProps) => (
           "p-4",
         ].join(" "),
         title: "font-medium text-[var(--color-ink)]",
-        description: "text-[var(--color-subtle)]",
+        description: "text-[var(--color-ink)]",
         actionButton: [
           "bg-[var(--color-accent-500)] text-white text-xs font-medium",
           "rounded-[var(--radius-sm)] px-3 py-1.5",
           "hover:bg-[var(--color-accent-600)]",
         ].join(" "),
         cancelButton: [
-          "bg-[var(--color-surface)] text-[var(--color-subtle)] text-xs font-medium",
+          "bg-[var(--color-surface)] text-[var(--color-ink)] text-xs font-medium",
           "rounded-[var(--radius-sm)] px-3 py-1.5",
           "hover:bg-[var(--color-overlay)]",
         ].join(" "),

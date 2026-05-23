@@ -276,7 +276,7 @@ export const CreatableMultiAutocomplete = React.forwardRef<HTMLInputElement, Cre
           </Popover.Portal>
         </Popover.Root>
         {error && <p className="text-xs text-[var(--color-danger)]">{error}</p>}
-        {hint && !error && <p className="text-xs text-[var(--color-subtle)]">{hint}</p>}
+        {hint && !error && <p className="text-xs text-[var(--color-ink)]">{hint}</p>}
       </div>
     );
   }

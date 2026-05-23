@@ -73,7 +73,7 @@ function RadioGroupItem({ option }: { option: RadioGroupOption }) {
           {option.label}
         </span>
         {option.description && (
-          <span className="text-xs text-[var(--color-subtle)] leading-snug">
+          <span className="text-xs text-[var(--color-ink)] leading-snug">
             {option.description}
           </span>
         )}

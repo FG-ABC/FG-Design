@@ -54,7 +54,7 @@ export const FormSelect = React.forwardRef<HTMLButtonElement, FormSelectProps>(
           </SelectContent>
         </Select>
         {error && <p className="text-xs text-[var(--color-danger)]">{error}</p>}
-        {hint && !error && <p className="text-xs text-[var(--color-subtle)]">{hint}</p>}
+        {hint && !error && <p className="text-xs text-[var(--color-ink)]">{hint}</p>}
       </div>
     );
   }

@@ -365,7 +365,7 @@ export function DataGrid<TRow>({
         {/* Bulk action bar */}
         {showBulkBar ? (
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm text-[var(--color-subtle)]">
+            <span className="text-sm text-[var(--color-ink)]">
               {selection.size} selected
             </span>
             {bulkActions!.map((action, i) => (
@@ -453,7 +453,7 @@ export function DataGrid<TRow>({
                     className={cn(
                       DENSITY_HEAD[density],
                       "relative select-none whitespace-nowrap overflow-hidden",
-                      "text-xs font-medium text-[var(--color-subtle)] uppercase tracking-wide",
+                      "text-xs font-medium text-[var(--color-ink)] uppercase tracking-wide",
                       "border-r border-[var(--color-border)] last:border-r-0",
                       align === "center" && "text-center",
                       align === "right" && "text-right",
@@ -513,7 +513,7 @@ export function DataGrid<TRow>({
                     (hasSelection ? 1 : 0) +
                     (hasActions ? 1 : 0)
                   }
-                  className="py-16 text-center text-sm text-[var(--color-muted)]"
+                  className="py-16 text-center text-sm text-[var(--color-ink)]"
                 >
                   {emptyState ?? "No results found."}
                 </td>
@@ -671,7 +671,7 @@ export function DataGrid<TRow>({
       {/* ── Pagination ── */}
       {pagination && (
         <div className="flex items-center justify-between gap-4 pt-3 flex-wrap">
-          <div className="flex items-center gap-2 text-sm text-[var(--color-subtle)]">
+          <div className="flex items-center gap-2 text-sm text-[var(--color-ink)]">
             <span>Rows per page</span>
             <Select
               value={String(pagination.pageSize)}
@@ -690,7 +690,7 @@ export function DataGrid<TRow>({
             </Select>
           </div>
 
-          <div className="flex items-center gap-1 text-sm text-[var(--color-subtle)]">
+          <div className="flex items-center gap-1 text-sm text-[var(--color-ink)]">
             <span className="mr-2">
               {pagination.total === 0
                 ? "0 rows"

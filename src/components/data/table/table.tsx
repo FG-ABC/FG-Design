@@ -73,7 +73,7 @@ const TableHead = React.forwardRef<
     ref={ref}
     className={cn(
       "h-10 px-4 text-left align-middle",
-      "text-xs font-medium text-[var(--color-subtle)] uppercase tracking-wide",
+      "text-xs font-medium text-[var(--color-ink)] uppercase tracking-wide",
       "whitespace-nowrap",
       sortable && "cursor-pointer select-none hover:text-[var(--color-ink)]",
       className
@@ -107,7 +107,7 @@ const TableCaption = React.forwardRef<HTMLTableCaptionElement, React.HTMLAttribu
   ({ className, ...props }, ref) => (
     <caption
       ref={ref}
-      className={cn("mt-4 text-sm text-[var(--color-subtle)]", className)}
+      className={cn("mt-4 text-sm text-[var(--color-ink)]", className)}
       {...props}
     />
   )

@@ -14,7 +14,7 @@ export const ValidationItem = React.forwardRef<HTMLLIElement, ValidationItemProp
       ref={ref}
       className={cn(
         "flex items-center gap-1.5 text-xs transition-colors duration-[var(--duration-fast)]",
-        valid ? "text-[var(--color-success)]" : "text-[var(--color-subtle)]",
+        valid ? "text-[var(--color-success)]" : "text-[var(--color-ink)]",
         className
       )}
       {...props}

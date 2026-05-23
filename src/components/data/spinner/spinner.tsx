@@ -35,7 +35,7 @@ export const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
     >
       <div className={spinnerVariants({ size })} aria-hidden="true" />
       {label ? (
-        <span className="text-xs text-[var(--color-subtle)]">{label}</span>
+        <span className="text-xs text-[var(--color-ink)]">{label}</span>
       ) : (
         <span className="sr-only">Loading</span>
       )}

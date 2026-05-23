@@ -88,7 +88,7 @@ export const TextareaAuto = React.forwardRef<HTMLTextAreaElement, TextareaAutoPr
           {...props}
         />
         {error && <p className="text-xs text-[var(--color-danger)]">{error}</p>}
-        {hint && !error && <p className="text-xs text-[var(--color-subtle)]">{hint}</p>}
+        {hint && !error && <p className="text-xs text-[var(--color-ink)]">{hint}</p>}
       </div>
     );
   }

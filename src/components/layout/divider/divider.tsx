@@ -21,7 +21,7 @@ export const Divider = React.forwardRef<
           className="flex-1 h-px bg-[var(--color-border)]"
           {...props}
         />
-        <span className="text-xs text-[var(--color-subtle)] whitespace-nowrap">{label}</span>
+        <span className="text-xs text-[var(--color-ink)] whitespace-nowrap">{label}</span>
         <SeparatorPrimitive.Root
           orientation="horizontal"
           className="flex-1 h-px bg-[var(--color-border)]"

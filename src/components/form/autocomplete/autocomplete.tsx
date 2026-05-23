@@ -164,7 +164,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
               )}
             >
               {filtered.length === 0 ? (
-                <p className="px-2 py-3 text-sm text-center text-[var(--color-muted)]">No options found.</p>
+                <p className="px-2 py-3 text-sm text-center text-[var(--color-ink)]">No options found.</p>
               ) : (
                 <ul role="listbox" className="max-h-60 overflow-y-auto">
                   {filtered.map((opt) => (
@@ -197,7 +197,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
           </Popover.Portal>
         </Popover.Root>
         {error && <p className="text-xs text-[var(--color-danger)]">{error}</p>}
-        {hint && !error && <p className="text-xs text-[var(--color-subtle)]">{hint}</p>}
+        {hint && !error && <p className="text-xs text-[var(--color-ink)]">{hint}</p>}
       </div>
     );
   }

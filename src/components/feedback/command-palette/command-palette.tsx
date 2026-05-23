@@ -74,7 +74,7 @@ const CommandEmpty = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Empty
     ref={ref}
-    className={cn("py-6 text-center text-sm text-[var(--color-subtle)]", className)}
+    className={cn("py-6 text-center text-sm text-[var(--color-ink)]", className)}
     {...props}
   />
 ));
@@ -90,7 +90,7 @@ const CommandGroup = React.forwardRef<
       "overflow-hidden",
       "[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5",
       "[&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium",
-      "[&_[cmdk-group-heading]]:text-[var(--color-subtle)]",
+      "[&_[cmdk-group-heading]]:text-[var(--color-ink)]",
       className
     )}
     {...props}
@@ -132,7 +132,7 @@ CommandItem.displayName = CommandPrimitive.Item.displayName;
 
 const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
   <span
-    className={cn("ml-auto text-xs tracking-widest text-[var(--color-muted)]", className)}
+    className={cn("ml-auto text-xs tracking-widest text-[var(--color-ink)]", className)}
     {...props}
   />
 );

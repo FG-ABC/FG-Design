@@ -29,7 +29,7 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex flex-col gap-1 min-w-0">
-            <p className="text-xs font-medium text-[var(--color-subtle)] uppercase tracking-wide truncate">
+            <p className="text-xs font-medium text-[var(--color-ink)] uppercase tracking-wide truncate">
               {label}
             </p>
             <div className="text-2xl font-semibold text-[var(--color-ink)] leading-tight">
@@ -53,7 +53,7 @@ export const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
                   {isPositive ? "+" : ""}{delta}%
                 </span>
                 {deltaLabel && (
-                  <span className="text-xs text-[var(--color-subtle)]">{deltaLabel}</span>
+                  <span className="text-xs text-[var(--color-ink)]">{deltaLabel}</span>
                 )}
               </div>
             )}

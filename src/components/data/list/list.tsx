@@ -14,7 +14,7 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(
 
     if (!hasChildren && emptyState) {
       return (
-        <div className="flex flex-col items-center justify-center py-8 text-[var(--color-subtle)]">
+        <div className="flex flex-col items-center justify-center py-8 text-[var(--color-ink)]">
           {emptyState}
         </div>
       );

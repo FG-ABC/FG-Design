@@ -16,7 +16,7 @@ export const FormCheckbox = React.forwardRef<
   <div className="flex flex-col gap-1.5">
     <Checkbox ref={ref} label={label} {...props} />
     {error && <p className="text-xs text-[var(--color-danger)] pl-6">{error}</p>}
-    {hint && !error && <p className="text-xs text-[var(--color-subtle)] pl-6">{hint}</p>}
+    {hint && !error && <p className="text-xs text-[var(--color-ink)] pl-6">{hint}</p>}
   </div>
 ));
 

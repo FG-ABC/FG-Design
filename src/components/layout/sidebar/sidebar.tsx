@@ -237,7 +237,7 @@ export const SidebarLabel = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        "px-2 mb-1 text-xs font-medium text-[var(--color-subtle)] uppercase tracking-wide",
+        "px-2 mb-1 text-xs font-medium text-[var(--color-ink)] uppercase tracking-wide",
         "overflow-hidden whitespace-nowrap transition-all duration-[var(--duration-fast)]",
         collapsed ? "opacity-0 h-0 mb-0" : "opacity-100",
         className,

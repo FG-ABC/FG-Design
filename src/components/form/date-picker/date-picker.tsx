@@ -133,7 +133,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 "focus-visible:border-[var(--color-accent-500)]",
                 "disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-[var(--color-surface)]",
                 error && "border-[var(--color-danger)] focus-visible:ring-[var(--color-danger)]",
-                !resolvedValue && "text-[var(--color-muted)]"
+                !resolvedValue && "text-[var(--color-ink)]"
               )}
             >
               <span className="flex items-center justify-between gap-2">
@@ -201,7 +201,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               {/* Day-of-week headers */}
               <div className="grid grid-cols-7 mb-1">
                 {DAYS.map((d) => (
-                  <div key={d} className="text-center text-xs font-medium text-[var(--color-muted)] py-1">
+                  <div key={d} className="text-center text-xs font-medium text-[var(--color-ink)] py-1">
                     {d}
                   </div>
                 ))}
@@ -245,7 +245,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
           </Popover.Portal>
         </Popover.Root>
         {error && <p className="text-xs text-[var(--color-danger)]">{error}</p>}
-        {hint && !error && <p className="text-xs text-[var(--color-subtle)]">{hint}</p>}
+        {hint && !error && <p className="text-xs text-[var(--color-ink)]">{hint}</p>}
       </div>
     );
   }
