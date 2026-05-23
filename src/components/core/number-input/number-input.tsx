@@ -67,9 +67,14 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     const [display, setDisplay] = React.useState(() => formatNumber(value, mode, maxDecimals));
 
     React.useEffect(() => {
-      if (typeof value === "number") {
-        setDisplay(formatNumber(value, mode, maxDecimals));
-      }
+      if (typeof value !== "number") return;
+      // Only overwrite display when the numeric value differs from what's shown,
+      // so an externally-driven change (e.g. reset to 0) takes effect without
+      // stomping an in-progress decimal like "1000.".
+      const current = mode === "FLOATS"
+        ? parseFloat(display.replace(/,/g, ""))
+        : parseInt(display.replace(/,/g, ""), 10);
+      if (current !== value) setDisplay(formatNumber(value, mode, maxDecimals));
     }, [value, mode, maxDecimals]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

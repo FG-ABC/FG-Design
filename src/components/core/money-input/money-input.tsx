@@ -58,9 +58,12 @@ export const MoneyInput = React.forwardRef<HTMLInputElement, MoneyInputProps>(
     const [display, setDisplay] = React.useState(() => formatMoney(value, maxDecimals));
 
     React.useEffect(() => {
-      if (typeof value === "number") {
-        setDisplay(formatMoney(value, maxDecimals));
-      }
+      if (typeof value !== "number") return;
+      // Only overwrite display when the numeric value differs from what's shown,
+      // so an externally-driven change (e.g. reset to 0) takes effect without
+      // stomping an in-progress decimal like "1000.".
+      const current = parseFloat(display.replace(/,/g, ""));
+      if (current !== value) setDisplay(formatMoney(value, maxDecimals));
     }, [value, maxDecimals]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

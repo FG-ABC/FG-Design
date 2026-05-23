@@ -128,6 +128,8 @@ export interface DataGridProps<TRow> {
   datagrid?: boolean;
   /** Called when user clicks "Add row". Return value is the new row draft. */
   onAddRow?: () => void;
+  /** Label for the add-row button. Defaults to "Add row". */
+  addRowLabel?: React.ReactNode;
   /** Called when user clicks the delete button on a row in datagrid mode. */
   onDeleteRow?: (row: TRow, rowIndex: number) => void;
   /** Validation errors keyed by rowKey → columnKey → error string. */
@@ -258,6 +260,7 @@ export function DataGrid<TRow>({
   density = "default",
   datagrid = false,
   onAddRow,
+  addRowLabel = "Add row",
   onDeleteRow,
   cellErrors,
   minHeight,
@@ -400,7 +403,7 @@ export function DataGrid<TRow>({
           {datagrid && onAddRow && (
             <Button type="button" size="sm" variant="outline" onClick={onAddRow}>
               <Plus className="h-4 w-4" />
-              Add row
+              {addRowLabel}
             </Button>
           )}
         </div>
