@@ -59,8 +59,8 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             ref={ref}
             style={{ width: collapsed ? "56px" : width }}
             className={cn(
-              "flex flex-col h-full border-r border-[var(--color-border)]",
-              "bg-[var(--color-surface)]",
+              "flex flex-col h-full border-r border-[var(--color-overlay)]",
+              "bg-[var(--color-canvas)]",
               "transition-all duration-[var(--duration-slow)] ease-[var(--ease-out)]",
               "overflow-hidden",
               "hidden md:flex",
@@ -69,7 +69,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             {...props}
           >
             {header && (
-              <div className="shrink-0 border-b border-[var(--color-border)]">
+              <div className="shrink-0 border-b border-[var(--color-overlay)]">
                 {header}
               </div>
             )}
@@ -80,7 +80,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             </div>
 
             {footer && (
-              <div className="shrink-0 border-t border-[var(--color-border)]">
+              <div className="shrink-0 border-t border-[var(--color-overlay)]">
                 {footer}
               </div>
             )}
@@ -90,9 +90,9 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                 onClick={() => onCollapsedChange(!collapsed)}
                 className={cn(
                   "flex items-center justify-center h-10 w-full shrink-0",
-                  "border-t border-[var(--color-border)]",
-                  "text-[var(--color-subtle)] hover:text-[var(--color-base)]",
-                  "hover:bg-[var(--color-overlay)]",
+                  "border-t border-[var(--color-overlay)]",
+                  "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+                  "hover:bg-[var(--color-surface)]",
                   "transition-colors duration-[var(--duration-fast)]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
                 )}
@@ -114,7 +114,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             <div
               onClick={() => onOpenChange(false)}
               className={cn(
-                "fixed inset-0 bg-[var(--color-ink)]/40 md:hidden",
+                "fixed inset-0 bg-black/25 backdrop-blur-[2px] md:hidden",
                 "transition-opacity duration-[var(--duration-slow)]",
                 "z-[var(--z-overlay)]",
                 open
@@ -129,19 +129,19 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                 style={{ width }}
                 className={cn(
                   "fixed top-0 left-0 h-full flex flex-col md:hidden",
-                  "bg-[var(--color-surface)] border-r border-[var(--color-border)]",
+                  "bg-[var(--color-canvas)] border-r border-[var(--color-overlay)]",
                   "transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out)]",
                   "z-[var(--z-modal)]",
                   open ? "translate-x-0" : "-translate-x-full",
                 )}
               >
-                <div className="flex items-center justify-end px-3 h-12 shrink-0 border-b border-[var(--color-border)]">
+                <div className="flex items-center justify-end px-3 h-12 shrink-0 border-b border-[var(--color-overlay)]">
                   <button
                     onClick={() => onOpenChange(false)}
                     className={cn(
                       "flex items-center justify-center h-8 w-8 rounded-[var(--radius-md)]",
-                      "text-[var(--color-subtle)] hover:text-[var(--color-base)]",
-                      "hover:bg-[var(--color-overlay)]",
+                      "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+                      "hover:bg-[var(--color-surface)]",
                       "transition-colors duration-[var(--duration-fast)]",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
                     )}
@@ -152,7 +152,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                 </div>
 
                 {header && (
-                  <div className="shrink-0 border-b border-[var(--color-border)]">
+                  <div className="shrink-0 border-b border-[var(--color-overlay)]">
                     {header}
                   </div>
                 )}
@@ -162,7 +162,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                 </div>
 
                 {footer && (
-                  <div className="shrink-0 border-t border-[var(--color-border)]">
+                  <div className="shrink-0 border-t border-[var(--color-overlay)]">
                     {footer}
                   </div>
                 )}
@@ -195,8 +195,8 @@ export const SidebarTrigger = React.forwardRef<
     }}
     className={cn(
       "flex items-center justify-center h-9 w-9 rounded-[var(--radius-md)]",
-      "text-[var(--color-subtle)] hover:text-[var(--color-base)]",
-      "hover:bg-[var(--color-overlay)]",
+      "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+      "hover:bg-[var(--color-surface)]",
       "transition-colors duration-[var(--duration-fast)]",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
       className,
@@ -237,7 +237,7 @@ export const SidebarLabel = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        "px-2 mb-1 text-xs font-medium text-[var(--color-ink)] uppercase tracking-wide",
+        "px-3 mb-1 text-[10px] font-semibold text-[var(--color-subtle)] uppercase tracking-widest",
         "overflow-hidden whitespace-nowrap transition-all duration-[var(--duration-fast)]",
         collapsed ? "opacity-0 h-0 mb-0" : "opacity-100",
         className,
@@ -255,36 +255,54 @@ SidebarLabel.displayName = "SidebarLabel";
 export interface SidebarItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   icon?: React.ReactNode;
+  tooltip?: string;
 }
 
 export const SidebarItem = React.forwardRef<
   HTMLButtonElement,
   SidebarItemProps
->(({ className, active, icon, children, ...props }, ref) => {
+>(({ className, active, icon, tooltip, children, ...props }, ref) => {
   const { collapsed } = useSidebar();
   return (
-    <button
-      ref={ref}
-      className={cn(
-        "flex items-center py-1.5 rounded-[var(--radius-md)]",
-        "text-sm text-[var(--color-base)] font-medium",
-        "transition-colors duration-[var(--duration-fast)]",
-        "hover:bg-[var(--color-overlay)] focus-visible:outline-none focus-visible:ring-2",
-        "focus-visible:ring-[var(--color-accent-500)]",
-        collapsed ? "w-full justify-center px-0 gap-0" : "w-full px-2 gap-2.5",
-        active &&
-          "bg-[var(--color-elevated)] text-[var(--color-ink)] shadow-[var(--shadow-xs)]",
-        className,
+    <div className="group relative">
+      <button
+        ref={ref}
+        className={cn(
+          "flex items-center py-2 rounded-[var(--radius-md)]",
+          "text-sm font-medium",
+          "transition-colors duration-[var(--duration-fast)]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
+          collapsed ? "w-full justify-center px-0 gap-0" : "w-full px-3 gap-3",
+          active
+            ? "bg-[var(--color-accent-50)] text-[var(--color-accent-700)]"
+            : "text-[var(--color-subtle)] hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]",
+          className,
+        )}
+        {...props}
+      >
+        {icon && (
+          <span
+            className={cn(
+              "h-4 w-4 shrink-0 flex items-center justify-center",
+              active ? "text-[var(--color-accent-500)]" : "inherit",
+            )}
+          >
+            {icon}
+          </span>
+        )}
+        {!collapsed && children && <span className="truncate flex-1 text-left">{children}</span>}
+        {!collapsed && active && (
+          <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[var(--color-accent-500)] shrink-0" />
+        )}
+      </button>
+
+      {/* Tooltip shown when collapsed */}
+      {collapsed && (tooltip ?? (typeof children === "string" ? children : undefined)) && (
+        <div className="pointer-events-none absolute top-1/2 left-full z-[var(--z-tooltip)] ml-2 -translate-y-1/2 rounded-[var(--radius-md)] border border-[var(--color-overlay)] bg-[var(--color-canvas)] px-2.5 py-1.5 text-xs font-medium whitespace-nowrap text-[var(--color-ink)] opacity-0 shadow-[var(--shadow-md)] transition-opacity duration-[var(--duration-fast)] group-hover:opacity-100">
+          {tooltip ?? children}
+        </div>
       )}
-      {...props}
-    >
-      {icon && (
-        <span className="h-4 w-4 shrink-0 flex items-center justify-center">
-          {icon}
-        </span>
-      )}
-      {!collapsed && children && <span className="truncate">{children}</span>}
-    </button>
+    </div>
   );
 });
 SidebarItem.displayName = "SidebarItem";
@@ -312,38 +330,46 @@ export const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroupProps>(
 
     return (
       <div ref={ref} className={cn("w-full", className)}>
-        <button
-          onClick={() => !collapsed && setOpen((o) => !o)}
-          className={cn(
-            "flex items-center py-1.5 rounded-[var(--radius-md)]",
-            "text-sm text-[var(--color-base)] font-medium",
-            "transition-colors duration-[var(--duration-fast)]",
-            "hover:bg-[var(--color-overlay)] focus-visible:outline-none focus-visible:ring-2",
-            "focus-visible:ring-[var(--color-accent-500)]",
-            collapsed
-              ? "w-full justify-center px-0 gap-0 cursor-default"
-              : "w-full px-2 gap-2.5",
-          )}
-          aria-expanded={open}
-          aria-label={label}
-        >
-          {icon && (
-            <span className="h-4 w-4 shrink-0 flex items-center justify-center">
-              {icon}
-            </span>
-          )}
-          {!collapsed && (
-            <>
-              <span className="flex-1 truncate text-left">{label}</span>
-              <span
-                className="h-4 w-4 shrink-0 flex items-center justify-center text-[var(--color-subtle)] transition-transform duration-[var(--duration-fast)]"
-                style={{ transform: open ? "rotate(0deg)" : "rotate(-90deg)" }}
-              >
-                <ChevronDown className="h-3.5 w-3.5" />
+        <div className="group relative">
+          <button
+            onClick={() => !collapsed && setOpen((o) => !o)}
+            className={cn(
+              "flex items-center py-2 rounded-[var(--radius-md)]",
+              "text-sm font-medium text-[var(--color-subtle)]",
+              "transition-colors duration-[var(--duration-fast)]",
+              "hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
+              collapsed
+                ? "w-full justify-center px-0 gap-0 cursor-default"
+                : "w-full px-3 gap-3",
+            )}
+            aria-expanded={open}
+            aria-label={label}
+          >
+            {icon && (
+              <span className="h-4 w-4 shrink-0 flex items-center justify-center">
+                {icon}
               </span>
-            </>
+            )}
+            {!collapsed && (
+              <>
+                <span className="flex-1 truncate text-left">{label}</span>
+                <span
+                  className="h-4 w-4 shrink-0 flex items-center justify-center transition-transform duration-[var(--duration-fast)]"
+                  style={{ transform: open ? "rotate(0deg)" : "rotate(-90deg)" }}
+                >
+                  <ChevronDown className="h-3.5 w-3.5" />
+                </span>
+              </>
+            )}
+          </button>
+
+          {collapsed && (
+            <div className="pointer-events-none absolute top-1/2 left-full z-[var(--z-tooltip)] ml-2 -translate-y-1/2 rounded-[var(--radius-md)] border border-[var(--color-overlay)] bg-[var(--color-canvas)] px-2.5 py-1.5 text-xs font-medium whitespace-nowrap text-[var(--color-ink)] opacity-0 shadow-[var(--shadow-md)] transition-opacity duration-[var(--duration-fast)] group-hover:opacity-100">
+              {label}
+            </div>
           )}
-        </button>
+        </div>
 
         {!collapsed && (
           <div
@@ -352,7 +378,7 @@ export const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroupProps>(
               open ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
             )}
           >
-            <div className="pl-3 mt-0.5 border-l border-[var(--color-border)] ml-3.5">
+            <div className="pl-3 mt-0.5 border-l border-[var(--color-overlay)] ml-[18px]">
               {children}
             </div>
           </div>
