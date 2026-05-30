@@ -32,6 +32,7 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 ### User needs to pick a date or time
 → [`DatePicker`](components/date-picker.md) — calendar popover, value is `"YYYY-MM-DD"`
 → [`DateTimePicker`](components/date-time-picker.md) — calendar + time scroll, value is `"YYYY-MM-DDTHH:mm"`
+→ [`MonthPicker`](components/month-picker.md) — month + year only, value is `"YYYY-MM"`
 
 ### User needs to pick from a list of options
 → [`FormSelect`](components/form-select.md) — dropdown, single value, fixed option list

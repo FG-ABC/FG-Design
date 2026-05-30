@@ -19,6 +19,9 @@ export type { DatePickerProps } from "./date-picker";
 export { DateTimePicker } from "./date-time-picker";
 export type { DateTimePickerProps } from "./date-time-picker";
 
+export { MonthPicker } from "./month-picker";
+export type { MonthPickerProps } from "./month-picker";
+
 export { FormRadio } from "./form-radio";
 export type { FormRadioProps } from "./form-radio";
 
