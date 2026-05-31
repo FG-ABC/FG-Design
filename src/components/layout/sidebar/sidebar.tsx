@@ -91,7 +91,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                 className={cn(
                   "flex items-center justify-center h-10 w-full shrink-0",
                   "border-t border-[var(--color-overlay)]",
-                  "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+                  "text-[var(--color-ink)]",
                   "hover:bg-[var(--color-surface)]",
                   "transition-colors duration-[var(--duration-fast)]",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
@@ -140,7 +140,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                     onClick={() => onOpenChange(false)}
                     className={cn(
                       "flex items-center justify-center h-8 w-8 rounded-[var(--radius-md)]",
-                      "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+                      "text-[var(--color-ink)]",
                       "hover:bg-[var(--color-surface)]",
                       "transition-colors duration-[var(--duration-fast)]",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
@@ -195,7 +195,7 @@ export const SidebarTrigger = React.forwardRef<
     }}
     className={cn(
       "flex items-center justify-center h-9 w-9 rounded-[var(--radius-md)]",
-      "text-[var(--color-subtle)] hover:text-[var(--color-ink)]",
+      "text-[var(--color-ink)]",
       "hover:bg-[var(--color-surface)]",
       "transition-colors duration-[var(--duration-fast)]",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
@@ -237,7 +237,7 @@ export const SidebarLabel = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        "px-3 mb-1 text-[10px] font-semibold text-[var(--color-subtle)] uppercase tracking-widest",
+        "px-3 mb-1 text-[10px] font-semibold text-[var(--color-ink)] uppercase tracking-widest",
         "overflow-hidden whitespace-nowrap transition-all duration-[var(--duration-fast)]",
         collapsed ? "opacity-0 h-0 mb-0" : "opacity-100",
         className,
@@ -275,7 +275,7 @@ export const SidebarItem = React.forwardRef<
           collapsed ? "w-full justify-center px-0 gap-0" : "w-full px-3 gap-3",
           active
             ? "bg-[var(--color-accent-50)] text-[var(--color-accent-700)]"
-            : "text-[var(--color-subtle)] hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]",
+            : "text-[var(--color-ink)] hover:bg-[var(--color-surface)]",
           className,
         )}
         {...props}
@@ -335,9 +335,9 @@ export const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroupProps>(
             onClick={() => !collapsed && setOpen((o) => !o)}
             className={cn(
               "flex items-center py-2 rounded-[var(--radius-md)]",
-              "text-sm font-medium text-[var(--color-subtle)]",
+              "text-sm font-medium text-[var(--color-ink)]",
               "transition-colors duration-[var(--duration-fast)]",
-              "hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]",
+              "hover:bg-[var(--color-surface)]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-500)]",
               collapsed
                 ? "w-full justify-center px-0 gap-0 cursor-default"

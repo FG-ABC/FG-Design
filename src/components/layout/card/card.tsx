@@ -34,11 +34,15 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = "Card";
 
-export const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  border?: boolean;
+}
+
+export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
+  ({ className, border = false, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("flex flex-col gap-1 pb-4 border-b border-[var(--color-border)]", className)}
+      className={cn("flex flex-col gap-1 pb-4", border && "border-b border-[var(--color-border)]", className)}
       {...props}
     />
   )
@@ -74,11 +78,15 @@ export const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes
 );
 CardContent.displayName = "CardContent";
 
-export const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
+export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+  border?: boolean;
+}
+
+export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
+  ({ className, border = false, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("flex items-center pt-4 border-t border-[var(--color-border)]", className)}
+      className={cn("flex items-center pt-4", border && "border-t border-[var(--color-border)]", className)}
       {...props}
     />
   )
