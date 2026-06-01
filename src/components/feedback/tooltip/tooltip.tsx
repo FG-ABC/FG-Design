@@ -18,8 +18,8 @@ const TooltipContent = React.forwardRef<
       className={cn(
         "z-[var(--z-tooltip)] max-w-xs",
         "rounded-[var(--radius-md)] border border-[var(--color-border)]",
-        "bg-[var(--color-ink)] px-3 py-1.5",
-        "text-xs text-white leading-snug",
+        "bg-[var(--color-elevated)] px-3 py-1.5",
+        "text-xs text-[var(--color-ink)] leading-snug",
         "shadow-[var(--shadow-md)]",
         "animate-in fade-in-0 zoom-in-95",
         "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
