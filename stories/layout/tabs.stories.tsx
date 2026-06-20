@@ -1,11 +1,19 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj, Decorator } from "@storybook/react";
+import React from "react";
 import { Tabs } from "@/components/layout/tabs";
 import { BarChart2, Settings, Users } from "lucide-react";
+
+const withBackground: Decorator = (Story) => (
+  <div className="bg-[var(--color-canvas)] min-h-16 p-4 rounded-[var(--radius-md)]">
+    <Story />
+  </div>
+);
 
 const meta: Meta<typeof Tabs> = {
   title: "Layout/Tabs",
   component: Tabs,
   parameters: { layout: "padded" },
+  decorators: [withBackground],
   tags: ["autodocs"],
 };
 
@@ -24,6 +32,10 @@ export const Default: Story = {
 
 export const Pill: Story = {
   args: { items, variant: "pill", defaultValue: "overview" },
+};
+
+export const Box: Story = {
+  args: { items, variant: "box", defaultValue: "overview" },
 };
 
 export const WithIcons: Story = {

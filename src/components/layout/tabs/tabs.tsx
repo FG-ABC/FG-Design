@@ -14,6 +14,9 @@ const tabsListVariants = cva("flex", {
       pill: [
         "bg-[var(--color-surface)] rounded-[var(--radius-md)] p-1 gap-1",
       ],
+      box: [
+        "gap-1",
+      ],
     },
   },
   defaultVariants: { variant: "line" },
@@ -38,6 +41,11 @@ const tabsTriggerVariants = cva(
           "px-3 py-1.5 rounded-[var(--radius-sm)]",
           "text-[var(--color-subtle)] hover:text-[var(--color-base)]",
           "data-[state=active]:bg-[var(--color-elevated)] data-[state=active]:text-[var(--color-ink)] data-[state=active]:shadow-[var(--shadow-xs)]",
+        ],
+        box: [
+          "px-3 py-1.5 rounded-[var(--radius-sm)]",
+          "text-[var(--color-subtle)] hover:text-[var(--color-base)] hover:bg-[var(--color-surface)]",
+          "data-[state=active]:bg-[var(--color-accent-500)] data-[state=active]:text-[var(--color-canvas)]",
         ],
       },
     },

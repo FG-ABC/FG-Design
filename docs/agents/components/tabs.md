@@ -31,6 +31,13 @@ Rounded pill buttons on a tinted background. Use for compact in-page toggles or 
 <Tabs variant="pill" defaultValue="a" items={items} />
 ```
 
+### `box`
+Solid accent-filled box covering the active tab. High-contrast selection indicator; works in dark mode. Use when you want a bolder, more prominent active state than `line` or `pill`.
+
+```tsx
+<Tabs variant="box" defaultValue="a" items={items} />
+```
+
 ## Controlled
 
 Pass `value` + `onValueChange` to control the active tab from outside.
@@ -78,7 +85,7 @@ items={[
 | Prop | Type | Default |
 |---|---|---|
 | `items` | `TabItem[]` | — (required) |
-| `variant` | `line \| pill` | `line` |
+| `variant` | `line \| pill \| box` | `line` |
 | `defaultValue` | `string` | first item's value |
 | `value` | `string` | — (controlled) |
 | `onValueChange` | `(value: string) => void` | — |

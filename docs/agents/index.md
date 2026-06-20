@@ -107,7 +107,7 @@ Styles: `import "@fg-abc/ui/styles"` once in your app entry.
 → [`Sidebar`](components/sidebar.md) — collapsible side nav with icon-rail mode, expandable groups (`SidebarGroup`), and a mobile slide-in drawer; use `SidebarTrigger` in a top bar for mobile
 → [`Header`](components/header.md) — top bar layout primitive
 → [`Breadcrumb`](components/breadcrumb.md) — navigation trail, collapsible with `maxItems`, custom separator
-→ [`Tabs`](components/tabs.md) — tabbed panels, `line` (underline) or `pill` variant
+→ [`Tabs`](components/tabs.md) — tabbed panels, `line` (underline), `pill`, or `box` (solid accent fill) variant
 
 ---
 
