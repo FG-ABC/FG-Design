@@ -75,7 +75,14 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             )}
 
             {/* Plain div avoids Radix ScrollArea's inner display:table wrapper which breaks w-full in the collapsed 56px rail */}
-            <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            <div className={cn(
+              "flex-1 overflow-y-auto overflow-x-hidden",
+              "[&::-webkit-scrollbar]:w-[5px]",
+              "[&::-webkit-scrollbar-track]:bg-transparent",
+              "[&::-webkit-scrollbar-thumb]:rounded-full",
+              "[&::-webkit-scrollbar-thumb]:bg-[var(--color-overlay)]",
+              "[&::-webkit-scrollbar-thumb:hover]:bg-[var(--color-muted)]",
+            )}>
               {children}
             </div>
 
@@ -157,7 +164,14 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                   </div>
                 )}
 
-                <div className="flex-1 overflow-y-auto overflow-x-hidden">
+                <div className={cn(
+                  "flex-1 overflow-y-auto overflow-x-hidden",
+                  "[&::-webkit-scrollbar]:w-[5px]",
+                  "[&::-webkit-scrollbar-track]:bg-transparent",
+                  "[&::-webkit-scrollbar-thumb]:rounded-full",
+                  "[&::-webkit-scrollbar-thumb]:bg-[var(--color-overlay)]",
+                  "[&::-webkit-scrollbar-thumb:hover]:bg-[var(--color-muted)]",
+                )}>
                   {children}
                 </div>
 
