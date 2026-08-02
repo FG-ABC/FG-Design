@@ -3,7 +3,7 @@
 Pill label for status, tags, and counts.
 
 ```tsx
-import { Badge } from "@fg-abc/ui";
+import { Badge } from "fg-design";
 
 <Badge>Default</Badge>
 <Badge variant="accent">New</Badge>
@@ -18,21 +18,25 @@ import { Badge } from "@fg-abc/ui";
 
 ```tsx
 import { CheckCircle } from "lucide-react";
-<Badge variant="success"><CheckCircle className="h-3 w-3" /> Verified</Badge>
+<Badge variant="success">
+  <CheckCircle className="h-3 w-3" /> Verified
+</Badge>;
 ```
 
 ## Variants
-| `variant` | Use for |
-|---|---|
-| `default` | Neutral labels, tags |
-| `accent` | Feature highlights, "New" |
+
+| `variant` | Use for                     |
+| --------- | --------------------------- |
+| `default` | Neutral labels, tags        |
+| `accent`  | Feature highlights, "New"   |
 | `success` | Active, completed, verified |
-| `warning` | Pending, review needed |
-| `danger` | Inactive, error, rejected |
-| `info` | Draft, informational |
-| `outline` | Subtle secondary tags |
+| `warning` | Pending, review needed      |
+| `danger`  | Inactive, error, rejected   |
+| `info`    | Draft, informational        |
+| `outline` | Subtle secondary tags       |
 
 ## Notes
+
 - `Badge` is a `<span>` — it renders inline
 - In `DataGrid` cell renderers, wrap in `<div className="flex justify-center">` to center it in a column
 - Never use raw hex for badge colors — always use a semantic variant

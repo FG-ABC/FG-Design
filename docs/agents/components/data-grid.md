@@ -3,20 +3,24 @@
 Full-featured data table. Purely controlled — the component holds no data, sort, or page state itself.
 
 ```tsx
-import { DataGrid, ColumnDef } from "@fg-abc/ui";
+import { DataGrid, ColumnDef } from "fg-design";
 ```
 
 ## Minimal example
 
 ```tsx
-interface User { id: number; name: string; email: string; }
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
 
 const columns: ColumnDef<User>[] = [
   { key: "name", header: "Name", cell: (r) => r.name },
   { key: "email", header: "Email", cell: (r) => r.email },
 ];
 
-<DataGrid columns={columns} rows={users} rowKey={(r) => r.id} />
+<DataGrid columns={columns} rows={users} rowKey={(r) => r.id} />;
 ```
 
 ## Sorting (server-side)
@@ -31,11 +35,14 @@ const columns: ColumnDef<User>[] = [
 
 <DataGrid
   columns={columns}
-  rows={rows}      // already sorted by your server/query
+  rows={rows} // already sorted by your server/query
   rowKey={(r) => r.id}
   sort={sort}
-  onSort={(s) => { setSort(s); setPage(1); }}
-/>
+  onSort={(s) => {
+    setSort(s);
+    setPage(1);
+  }}
+/>;
 ```
 
 Clicking a sortable header cycles: none → asc → desc → none.
@@ -45,11 +52,14 @@ Clicking a sortable header cycles: none → asc → desc → none.
 ```tsx
 <DataGrid
   columns={columns}
-  rows={pageRows}   // current page only
+  rows={pageRows} // current page only
   rowKey={(r) => r.id}
   pagination={{ page, pageSize, total }}
   onPageChange={setPage}
-  onPageSizeChange={(s) => { setPageSize(s); setPage(1); }}
+  onPageSizeChange={(s) => {
+    setPageSize(s);
+    setPage(1);
+  }}
   pageSizeOptions={[10, 25, 50]}
 />
 ```
@@ -69,7 +79,7 @@ const [selected, setSelected] = React.useState<Set<string | number>>(new Set());
     { label: "Export", onClick: (rows) => exportCSV(rows) },
     { label: "Delete", onClick: (rows) => deleteAll(rows) },
   ]}
-/>
+/>;
 ```
 
 ## Per-row actions
@@ -95,7 +105,7 @@ import { Pencil, Trash2 } from "lucide-react";
       show: (row) => row.deletable, // optional condition
     },
   ]}
-/>
+/>;
 ```
 
 ## Grand total footer
@@ -104,13 +114,16 @@ Set `showFooter` and add `footer` to each column you want totalled.
 
 ```tsx
 const columns: ColumnDef<Order>[] = [
-  { key: "amount", header: "Amount", align: "right",
+  {
+    key: "amount",
+    header: "Amount",
+    align: "right",
     cell: (r) => fmt.format(r.amount),
     footer: fmt.format(orders.reduce((s, o) => s + o.amount, 0)),
   },
 ];
 
-<DataGrid columns={columns} rows={orders} rowKey={(r) => r.id} showFooter />
+<DataGrid columns={columns} rows={orders} rowKey={(r) => r.id} showFooter />;
 ```
 
 ## Column collapse
@@ -158,7 +171,7 @@ const columns: ColumnDef<LineItem>[] = [
   onAddRow={() => appendBlankRow()}
   onDeleteRow={(row) => removeRow(row.id)}
   cellErrors={{ [row.id]: { name: "Name is required" } }}
-/>
+/>;
 ```
 
 `onAddRow` can also open a modal — just call `setModalOpen(true)` instead of mutating rows.
@@ -193,41 +206,41 @@ interface ColumnDef<TRow> {
   header: string;
   cell?: (row: TRow, rowIndex: number) => ReactNode;
   sortable?: boolean;
-  width?: number;           // px
-  minWidth?: number;        // px, for resizing
+  width?: number; // px
+  minWidth?: number; // px, for resizing
   align?: "left" | "center" | "right";
-  footer?: ReactNode;       // shown when showFooter=true
-  collapsible?: boolean;    // default true
+  footer?: ReactNode; // shown when showFooter=true
+  collapsible?: boolean; // default true
 }
 ```
 
 ## All props
 
-| Prop | Type | Default |
-|---|---|---|
-| `columns` | `ColumnDef<TRow>[]` | required |
-| `rows` | `TRow[]` | required |
-| `rowKey` | `(row: TRow) => string \| number` | required |
-| `loading` | `boolean` | `false` |
-| `emptyState` | `ReactNode` | `"No results found."` |
-| `sort` | `SortState \| null` | — |
-| `onSort` | `(sort: SortState \| null) => void` | — |
-| `pagination` | `PaginationState` | — |
-| `onPageChange` | `(page: number) => void` | — |
-| `onPageSizeChange` | `(size: number) => void` | — |
-| `pageSizeOptions` | `number[]` | `[10, 25, 50, 100]` |
-| `onRefetch` | `() => void` | — |
-| `selectedKeys` | `Set<string \| number>` | — |
-| `onSelectionChange` | `(keys: Set<string \| number>) => void` | — |
-| `bulkActions` | `BulkAction<TRow>[]` | — |
-| `rowActions` | `RowAction<TRow>[]` | — |
-| `onRowClick` | `(row: TRow, index: number) => void` | — |
-| `showFooter` | `boolean` | `false` |
-| `resizable` | `boolean` | `false` |
-| `density` | `compact \| default \| comfortable` | `default` |
-| `datagrid` | `boolean` | `false` |
-| `onAddRow` | `() => void` | — |
-| `onDeleteRow` | `(row: TRow, index: number) => void` | — |
-| `cellErrors` | `Record<key, Record<colKey, string>>` | — |
+| Prop                | Type                                    | Default               |
+| ------------------- | --------------------------------------- | --------------------- |
+| `columns`           | `ColumnDef<TRow>[]`                     | required              |
+| `rows`              | `TRow[]`                                | required              |
+| `rowKey`            | `(row: TRow) => string \| number`       | required              |
+| `loading`           | `boolean`                               | `false`               |
+| `emptyState`        | `ReactNode`                             | `"No results found."` |
+| `sort`              | `SortState \| null`                     | —                     |
+| `onSort`            | `(sort: SortState \| null) => void`     | —                     |
+| `pagination`        | `PaginationState`                       | —                     |
+| `onPageChange`      | `(page: number) => void`                | —                     |
+| `onPageSizeChange`  | `(size: number) => void`                | —                     |
+| `pageSizeOptions`   | `number[]`                              | `[10, 25, 50, 100]`   |
+| `onRefetch`         | `() => void`                            | —                     |
+| `selectedKeys`      | `Set<string \| number>`                 | —                     |
+| `onSelectionChange` | `(keys: Set<string \| number>) => void` | —                     |
+| `bulkActions`       | `BulkAction<TRow>[]`                    | —                     |
+| `rowActions`        | `RowAction<TRow>[]`                     | —                     |
+| `onRowClick`        | `(row: TRow, index: number) => void`    | —                     |
+| `showFooter`        | `boolean`                               | `false`               |
+| `resizable`         | `boolean`                               | `false`               |
+| `density`           | `compact \| default \| comfortable`     | `default`             |
+| `datagrid`          | `boolean`                               | `false`               |
+| `onAddRow`          | `() => void`                            | —                     |
+| `onDeleteRow`       | `(row: TRow, index: number) => void`    | —                     |
+| `cellErrors`        | `Record<key, Record<colKey, string>>`   | —                     |
 
 See [patterns.md](../patterns.md) for full server-side sort + pagination example.

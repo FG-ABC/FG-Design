@@ -3,7 +3,7 @@
 Dropdown select for short, fixed option lists. Built on Radix Select.
 
 ```tsx
-import { FormSelect } from "@fg-abc/ui";
+import { FormSelect } from "fg-design";
 
 const OPTIONS = [
   { label: "Active", value: "active" },
@@ -19,18 +19,20 @@ const OPTIONS = [
 ```
 
 ## Props
-| Prop | Type | Default |
-|---|---|---|
-| `options` | `{ label: string; value: string }[]` | required |
-| `value` | `string` | — |
-| `onValueChange` | `(value: string) => void` | — |
-| `label` | `string` | — |
-| `error` | `string` | — |
-| `hint` | `string` | — |
-| `placeholder` | `string` | `Select an option…` |
-| `disabled` | `boolean` | `false` |
+
+| Prop            | Type                                 | Default             |
+| --------------- | ------------------------------------ | ------------------- |
+| `options`       | `{ label: string; value: string }[]` | required            |
+| `value`         | `string`                             | —                   |
+| `onValueChange` | `(value: string) => void`            | —                   |
+| `label`         | `string`                             | —                   |
+| `error`         | `string`                             | —                   |
+| `hint`          | `string`                             | —                   |
+| `placeholder`   | `string`                             | `Select an option…` |
+| `disabled`      | `boolean`                            | `false`             |
 
 ## Notes
+
 - Use `FormSelect` (not raw `Select`) in forms — it handles label/error/hint
 - For searchable or long lists, use `Autocomplete` instead
 - `onValueChange` never fires with an empty string — clear is not supported (use `Autocomplete` if you need clearable)

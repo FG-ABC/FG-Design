@@ -3,7 +3,7 @@
 User avatar with image and fallback initials.
 
 ```tsx
-import { Avatar } from "@fg-abc/ui";
+import { Avatar } from "fg-design";
 
 // Image with fallback
 <Avatar src="https://…/photo.jpg" alt="Alice Martin" />
@@ -40,13 +40,15 @@ const columns: ColumnDef<User>[] = [
 ```
 
 ## Props
-| Prop | Type | Default |
-|---|---|---|
-| `src` | `string` | — |
-| `alt` | `string` | — |
-| `fallback` | `string` | first 2 chars of `alt` |
-| `size` | `xs \| sm \| md \| lg \| xl` | `md` |
+
+| Prop       | Type                         | Default                |
+| ---------- | ---------------------------- | ---------------------- |
+| `src`      | `string`                     | —                      |
+| `alt`      | `string`                     | —                      |
+| `fallback` | `string`                     | first 2 chars of `alt` |
+| `size`     | `xs \| sm \| md \| lg \| xl` | `md`                   |
 
 ## Notes
+
 - Fallback background is `--color-accent-100` with `--color-accent-700` text
 - `fallback` takes precedence over `alt`-derived initials when both are set

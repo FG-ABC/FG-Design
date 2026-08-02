@@ -5,16 +5,16 @@ Notification toasts via Sonner. Mount `Toaster` once; call `toast()` anywhere.
 ## Setup (once per app)
 
 ```tsx
-import { Toaster } from "@fg-abc/ui";
+import { Toaster } from "fg-design";
 
 // In your root layout or _app.tsx
-<Toaster position="bottom-right" />
+<Toaster position="bottom-right" />;
 ```
 
 ## Usage
 
 ```tsx
-import { toast } from "@fg-abc/ui";
+import { toast } from "fg-design";
 
 toast("Message saved");
 toast.success("Profile updated");
@@ -40,12 +40,14 @@ toast.success("Done!");
 ```
 
 ## Toaster props
-| Prop | Type | Default |
-|---|---|---|
-| `position` | `top-left \| top-center \| top-right \| bottom-left \| bottom-center \| bottom-right` | — |
-| `duration` | `number` (ms) | `4000` |
-| `richColors` | `boolean` | `false` |
+
+| Prop         | Type                                                                                  | Default |
+| ------------ | ------------------------------------------------------------------------------------- | ------- |
+| `position`   | `top-left \| top-center \| top-right \| bottom-left \| bottom-center \| bottom-right` | —       |
+| `duration`   | `number` (ms)                                                                         | `4000`  |
+| `richColors` | `boolean`                                                                             | `false` |
 
 ## Notes
+
 - `toast` is re-exported directly from sonner — all sonner options are available
-- The `Toaster` component applies @fg-abc/ui styling tokens automatically — don't style toasts manually
+- The `Toaster` component applies fg-design styling tokens automatically — don't style toasts manually

@@ -5,11 +5,11 @@ Persistent inline status callout. Four semantic variants (info, success, warning
 ## Minimal example
 
 ```tsx
-import { Banner } from "@fg-abc/ui";
+import { Banner } from "fg-design";
 
 <Banner variant="warning" title="Storage almost full">
   You've used 90% of your quota.
-</Banner>
+</Banner>;
 ```
 
 ## With an action
@@ -24,20 +24,20 @@ import { Banner } from "@fg-abc/ui";
 
 ## Props
 
-| Prop | Type | Default | Notes |
-|---|---|---|---|
-| `variant` | `info \| success \| warning \| danger` | `info` | Controls color and icon |
-| `title` | `string` | — | Bold heading line |
-| `children` | `ReactNode` | — | Body text below the title |
-| `action` | `BannerAction` | — | Optional button rendered on the right |
+| Prop       | Type                                   | Default | Notes                                 |
+| ---------- | -------------------------------------- | ------- | ------------------------------------- |
+| `variant`  | `info \| success \| warning \| danger` | `info`  | Controls color and icon               |
+| `title`    | `string`                               | —       | Bold heading line                     |
+| `children` | `ReactNode`                            | —       | Body text below the title             |
+| `action`   | `BannerAction`                         | —       | Optional button rendered on the right |
 
 ### BannerAction
 
-| Prop | Type | Notes |
-|---|---|---|
-| `label` | `string` | Button label |
-| `onClick` | `() => void` | Called on click |
-| `loading` | `boolean` | Shows spinner in button, disables it |
+| Prop      | Type         | Notes                                |
+| --------- | ------------ | ------------------------------------ |
+| `label`   | `string`     | Button label                         |
+| `onClick` | `() => void` | Called on click                      |
+| `loading` | `boolean`    | Shows spinner in button, disables it |
 
 ## Decision rules
 

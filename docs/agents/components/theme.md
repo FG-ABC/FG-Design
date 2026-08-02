@@ -6,23 +6,23 @@ Manages light/dark/system theme. Sets `data-theme` on `<html>`, persists to `loc
 
 ```tsx
 // app entry
-import { ThemeProvider } from "@fg-abc/ui";
+import { ThemeProvider } from "fg-design";
 
 export function App() {
   return (
-    <ThemeProvider defaultTheme="system">
-      {/* rest of app */}
-    </ThemeProvider>
+    <ThemeProvider defaultTheme="system">{/* rest of app */}</ThemeProvider>
   );
 }
 
 // anywhere in the tree
-import { useTheme } from "@fg-abc/ui";
+import { useTheme } from "fg-design";
 
 function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme();
   return (
-    <button onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
+    <button
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+    >
       {resolvedTheme === "dark" ? "Light mode" : "Dark mode"}
     </button>
   );
@@ -31,19 +31,19 @@ function ThemeToggle() {
 
 ## Props — ThemeProvider
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `defaultTheme` | `"light" \| "dark" \| "system"` | `"system"` | Initial theme if nothing in localStorage |
-| `storageKey` | `string` | `"fgd-ui-theme"` | localStorage key |
-| `children` | `ReactNode` | — | Required |
+| Prop           | Type                            | Default          | Description                              |
+| -------------- | ------------------------------- | ---------------- | ---------------------------------------- |
+| `defaultTheme` | `"light" \| "dark" \| "system"` | `"system"`       | Initial theme if nothing in localStorage |
+| `storageKey`   | `string`                        | `"fgd-ui-theme"` | localStorage key                         |
+| `children`     | `ReactNode`                     | —                | Required                                 |
 
 ## useTheme return value
 
-| Field | Type | Description |
-|---|---|---|
-| `theme` | `"light" \| "dark" \| "system"` | The stored preference |
-| `resolvedTheme` | `"light" \| "dark"` | Actual applied theme (system resolved) |
-| `setTheme` | `(theme: Theme) => void` | Update preference + localStorage |
+| Field           | Type                            | Description                            |
+| --------------- | ------------------------------- | -------------------------------------- |
+| `theme`         | `"light" \| "dark" \| "system"` | The stored preference                  |
+| `resolvedTheme` | `"light" \| "dark"`             | Actual applied theme (system resolved) |
+| `setTheme`      | `(theme: Theme) => void`        | Update preference + localStorage       |
 
 ## Notes
 

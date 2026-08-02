@@ -31,5 +31,5 @@ NODE_AUTH_TOKEN = something
 - Updating
 
 ```Bash
-npm update @fg-abc/ui
+npm update fg-design
 ```

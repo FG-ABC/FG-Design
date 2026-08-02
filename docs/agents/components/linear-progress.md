@@ -5,7 +5,7 @@ Horizontal indeterminate progress bar. Use above data tables or content areas to
 ## Minimal example
 
 ```tsx
-import { LinearProgress } from "@fg-abc/ui";
+import { LinearProgress } from "fg-design";
 
 <LinearProgress visible={isFetching} />
 <DataGrid ... />
@@ -13,9 +13,9 @@ import { LinearProgress } from "@fg-abc/ui";
 
 ## Props
 
-| Prop | Type | Default | Notes |
-|---|---|---|---|
-| `visible` | `boolean` | `true` | Renders nothing when false — layout stays stable |
+| Prop      | Type      | Default | Notes                                            |
+| --------- | --------- | ------- | ------------------------------------------------ |
+| `visible` | `boolean` | `true`  | Renders nothing when false — layout stays stable |
 
 ## Decision rules
 

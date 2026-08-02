@@ -7,7 +7,7 @@ Boolean input controls.
 ## Checkbox
 
 ```tsx
-import { Checkbox } from "@fg-abc/ui";
+import { Checkbox } from "fg-design";
 
 // With label (auto-generates matching id)
 <Checkbox label="Accept terms" />
@@ -24,20 +24,21 @@ import { Checkbox } from "@fg-abc/ui";
 Adds `error` and `hint` support to `Checkbox`.
 
 ```tsx
-import { FormCheckbox } from "@fg-abc/ui";
+import { FormCheckbox } from "fg-design";
 
 <FormCheckbox label="I agree to the terms" error="You must accept the terms." />
 <FormCheckbox label="Subscribe to updates" hint="You can unsubscribe at any time." />
 ```
 
 ## Checkbox Props
-| Prop | Type | Default |
-|---|---|---|
-| `label` | `string` | — |
-| `indeterminate` | `boolean` | `false` |
-| `checked` | `boolean \| "indeterminate"` | — |
-| `onCheckedChange` | `(checked: boolean) => void` | — |
-| `disabled` | `boolean` | `false` |
+
+| Prop              | Type                         | Default |
+| ----------------- | ---------------------------- | ------- |
+| `label`           | `string`                     | —       |
+| `indeterminate`   | `boolean`                    | `false` |
+| `checked`         | `boolean \| "indeterminate"` | —       |
+| `onCheckedChange` | `(checked: boolean) => void` | —       |
+| `disabled`        | `boolean`                    | `false` |
 
 ---
 
@@ -46,7 +47,7 @@ import { FormCheckbox } from "@fg-abc/ui";
 On/off switch. Use instead of `Checkbox` when the action takes immediate effect (e.g. enable notifications) rather than being part of a form submit.
 
 ```tsx
-import { Toggle } from "@fg-abc/ui";
+import { Toggle } from "fg-design";
 
 <Toggle label="Dark mode" />
 <Toggle label="Notifications" checked={enabled} onCheckedChange={setEnabled} />
@@ -54,10 +55,11 @@ import { Toggle } from "@fg-abc/ui";
 ```
 
 ## Toggle Props
-| Prop | Type | Default |
-|---|---|---|
-| `label` | `string` | — |
-| `size` | `sm \| md` | `md` |
-| `checked` | `boolean` | — |
-| `onCheckedChange` | `(checked: boolean) => void` | — |
-| `disabled` | `boolean` | `false` |
+
+| Prop              | Type                         | Default |
+| ----------------- | ---------------------------- | ------- |
+| `label`           | `string`                     | —       |
+| `size`            | `sm \| md`                   | `md`    |
+| `checked`         | `boolean`                    | —       |
+| `onCheckedChange` | `(checked: boolean) => void` | —       |
+| `disabled`        | `boolean`                    | `false` |

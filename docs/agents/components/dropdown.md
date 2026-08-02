@@ -4,10 +4,14 @@ Contextual action menu built on Radix DropdownMenu.
 
 ```tsx
 import {
-  DropdownMenu, DropdownMenuTrigger, DropdownMenuContent,
-  DropdownMenuItem, DropdownMenuSeparator, DropdownMenuLabel,
-  Button
-} from "@fg-abc/ui";
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+  Button,
+} from "fg-design";
 ```
 
 ## Basic usage
@@ -47,17 +51,21 @@ import {
 ## With keyboard shortcut
 
 ```tsx
-import { DropdownMenuShortcut } from "@fg-abc/ui";
+import { DropdownMenuShortcut } from "fg-design";
 
 <DropdownMenuItem>
   New window <DropdownMenuShortcut>⌘N</DropdownMenuShortcut>
-</DropdownMenuItem>
+</DropdownMenuItem>;
 ```
 
 ## Submenu
 
 ```tsx
-import { DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@fg-abc/ui";
+import {
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from "fg-design";
 
 <DropdownMenuSub>
   <DropdownMenuSubTrigger>More options</DropdownMenuSubTrigger>
@@ -65,16 +73,18 @@ import { DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from 
     <DropdownMenuItem>Option A</DropdownMenuItem>
     <DropdownMenuItem>Option B</DropdownMenuItem>
   </DropdownMenuSubContent>
-</DropdownMenuSub>
+</DropdownMenuSub>;
 ```
 
 ## DropdownMenuItem props
-| Prop | Type | Default |
-|---|---|---|
-| `destructive` | `boolean` | `false` — renders in danger color |
-| `disabled` | `boolean` | `false` |
-| `inset` | `boolean` | `false` — adds left padding for alignment |
+
+| Prop          | Type      | Default                                   |
+| ------------- | --------- | ----------------------------------------- |
+| `destructive` | `boolean` | `false` — renders in danger color         |
+| `disabled`    | `boolean` | `false`                                   |
+| `inset`       | `boolean` | `false` — adds left padding for alignment |
 
 ## Notes
+
 - `align="end"` on `DropdownMenuContent` aligns the menu to the right edge of the trigger — use for row action menus
 - `DropdownMenuContent` renders in a portal — z-index is `--z-dropdown`

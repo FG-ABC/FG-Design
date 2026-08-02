@@ -3,7 +3,7 @@
 Navigation trail showing the user's location in a hierarchy.
 
 ```tsx
-import { Breadcrumb } from "@fg-abc/ui";
+import { Breadcrumb } from "fg-design";
 
 <Breadcrumb
   items={[
@@ -11,7 +11,7 @@ import { Breadcrumb } from "@fg-abc/ui";
     { label: "Settings", href: "/settings" },
     { label: "Profile" },
   ]}
-/>
+/>;
 ```
 
 ## Collapsing long trails
@@ -50,15 +50,15 @@ Pass `maxItems` to cap visible crumbs. The first item is always shown; intermedi
 
 ## Props
 
-| Prop | Type | Default |
-|---|---|---|
-| `items` | `BreadcrumbItem[]` | — (required) |
-| `maxItems` | `number` | — (no limit) |
-| `separator` | `ReactNode` | `<ChevronRight />` |
+| Prop        | Type               | Default            |
+| ----------- | ------------------ | ------------------ |
+| `items`     | `BreadcrumbItem[]` | — (required)       |
+| `maxItems`  | `number`           | — (no limit)       |
+| `separator` | `ReactNode`        | `<ChevronRight />` |
 
 ### BreadcrumbItem
 
-| Field | Type | Notes |
-|---|---|---|
-| `label` | `string` | Display text |
-| `href` | `string` | Optional. Omit for non-linked crumbs |
+| Field   | Type     | Notes                                |
+| ------- | -------- | ------------------------------------ |
+| `label` | `string` | Display text                         |
+| `href`  | `string` | Optional. Omit for non-linked crumbs |

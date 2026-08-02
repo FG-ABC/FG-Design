@@ -9,7 +9,7 @@ Calendar popover pickers. No external date library required.
 Value is a `"YYYY-MM-DD"` string.
 
 ```tsx
-import { DatePicker } from "@fg-abc/ui";
+import { DatePicker } from "fg-design";
 
 // Uncontrolled
 <DatePicker label="Start date" />
@@ -30,17 +30,18 @@ const [date, setDate] = React.useState<string | null>(null);
 ```
 
 ## Props — DatePicker
-| Prop | Type | Default |
-|---|---|---|
-| `value` | `string` | — |
-| `onChange` | `(value: string \| null) => void` | — |
-| `label` | `string` | — |
-| `error` | `string` | — |
-| `hint` | `string` | — |
-| `placeholder` | `string` | `Select date…` |
-| `min` | `string` (YYYY-MM-DD) | — |
-| `max` | `string` (YYYY-MM-DD) | — |
-| `disabled` | `boolean` | `false` |
+
+| Prop          | Type                              | Default        |
+| ------------- | --------------------------------- | -------------- |
+| `value`       | `string`                          | —              |
+| `onChange`    | `(value: string \| null) => void` | —              |
+| `label`       | `string`                          | —              |
+| `error`       | `string`                          | —              |
+| `hint`        | `string`                          | —              |
+| `placeholder` | `string`                          | `Select date…` |
+| `min`         | `string` (YYYY-MM-DD)             | —              |
+| `max`         | `string` (YYYY-MM-DD)             | —              |
+| `disabled`    | `boolean`                         | `false`        |
 
 ---
 
@@ -49,16 +50,22 @@ const [date, setDate] = React.useState<string | null>(null);
 Value is a `"YYYY-MM-DDTHH:mm"` string (local time, no seconds).
 
 ```tsx
-import { DateTimePicker } from "@fg-abc/ui";
+import { DateTimePicker } from "fg-design";
 
 const [dt, setDt] = React.useState<string | null>(null);
-<DateTimePicker label="Scheduled at" value={dt ?? undefined} onChange={setDt} />
+<DateTimePicker
+  label="Scheduled at"
+  value={dt ?? undefined}
+  onChange={setDt}
+/>;
 ```
 
 ## Props — DateTimePicker
+
 Same as `DatePicker` minus `min`/`max`. No range constraints on time.
 
 ## Notes
+
 - `onChange` receives `null` when the user clears the value
 - The clear (×) button appears on the trigger when a value is selected
 - Today's date is highlighted in accent color

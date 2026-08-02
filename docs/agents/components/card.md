@@ -3,7 +3,7 @@
 White bordered container. The primary surface for grouping content.
 
 ```tsx
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@fg-abc/ui";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "fg-design";
 
 // Basic
 <Card>
@@ -47,21 +47,24 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 ```
 
 ## Padding variants
-| `padding` | Value | Use for |
-|---|---|---|
-| `none` | 0 | Tables, images, maps |
-| `sm` | 16px | Compact cards |
-| `md` (default) | 24px | Standard content |
-| `lg` | 32px | Spacious layouts |
+
+| `padding`      | Value | Use for              |
+| -------------- | ----- | -------------------- |
+| `none`         | 0     | Tables, images, maps |
+| `sm`           | 16px  | Compact cards        |
+| `md` (default) | 24px  | Standard content     |
+| `lg`           | 32px  | Spacious layouts     |
 
 ## Props
 
 ### `CardHeader` / `CardFooter`
-| Prop | Type | Default | Description |
-|---|---|---|---|
+
+| Prop     | Type      | Default | Description                                               |
+| -------- | --------- | ------- | --------------------------------------------------------- |
 | `border` | `boolean` | `false` | Renders a dividing line between header/footer and content |
 
 ## Notes
+
 - Pass `border` to `CardHeader` or `CardFooter` when you want a visible separator between sections
 - Always right-align footer actions with `className="justify-end"`
 - Nest `DataGrid` inside `<Card padding="none">` to get the full-bleed table-in-card look

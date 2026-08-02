@@ -3,7 +3,7 @@
 KPI / metric display with optional trend delta and icon.
 
 ```tsx
-import { StatCard } from "@fg-abc/ui";
+import { StatCard } from "fg-design";
 import { Users, DollarSign } from "lucide-react";
 
 // Basic
@@ -43,16 +43,18 @@ import { Users, DollarSign } from "lucide-react";
 <StatCard label="Revenue" value="" loading />
 
 ## Props
-| Prop | Type | Default |
-|---|---|---|
-| `label` | `string` | required |
-| `value` | `ReactNode` | required |
-| `delta` | `number` | — |
-| `deltaLabel` | `string` | — |
-| `icon` | `ReactNode` | — |
-| `loading` | `boolean` | `false` |
+
+| Prop         | Type        | Default  |
+| ------------ | ----------- | -------- |
+| `label`      | `string`    | required |
+| `value`      | `ReactNode` | required |
+| `delta`      | `number`    | —        |
+| `deltaLabel` | `string`    | —        |
+| `icon`       | `ReactNode` | —        |
+| `loading`    | `boolean`   | `false`  |
 
 ## Notes
+
 - Positive `delta` → green with TrendingUp icon
 - Negative `delta` → red with TrendingDown icon
 - Icon is displayed in a small `--color-accent-50` box — use a 20px Lucide icon

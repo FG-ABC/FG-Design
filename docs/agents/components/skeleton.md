@@ -3,7 +3,7 @@
 Animated loading placeholder. Use during async data fetches.
 
 ```tsx
-import { Skeleton } from "@fg-abc/ui";
+import { Skeleton } from "fg-design";
 
 // Rectangle (default) — for cards, images, boxes
 <Skeleton className="h-32 w-full" />
@@ -36,12 +36,14 @@ import { Skeleton } from "@fg-abc/ui";
 ```
 
 ## Props
-| Prop | Type | Default |
-|---|---|---|
-| `shape` | `rect \| text \| circle` | `rect` |
-| `className` | `string` | — |
+
+| Prop        | Type                     | Default |
+| ----------- | ------------------------ | ------- |
+| `shape`     | `rect \| text \| circle` | `rect`  |
+| `className` | `string`                 | —       |
 
 ## Notes
+
 - Size the skeleton to match the content it replaces — users get a realistic layout preview
 - `DataGrid` has a built-in skeleton via its `loading` prop — don't manually render skeletons in table cells
 - All shapes use `--color-overlay` with `animate-pulse`

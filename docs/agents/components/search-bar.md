@@ -3,7 +3,7 @@
 Search input with debounce or explicit submit button mode.
 
 ```tsx
-import { SearchBar } from "@fg-abc/ui";
+import { SearchBar } from "fg-design";
 
 // Debounce mode (default) — fires onSearch 300ms after typing stops
 <SearchBar onSearch={(q) => setQuery(q)} placeholder="Search…" />
@@ -19,18 +19,20 @@ import { SearchBar } from "@fg-abc/ui";
 ```
 
 ## Props
-| Prop | Type | Default |
-|---|---|---|
-| `onSearch` | `(value: string) => void` | required |
-| `mode` | `debounce \| button` | `debounce` |
-| `debounceMs` | `number` | `300` |
-| `loading` | `boolean` | `false` |
-| `buttonLabel` | `string` | `Search` |
-| `onClear` | `() => void` | — |
+
+| Prop          | Type                      | Default    |
+| ------------- | ------------------------- | ---------- |
+| `onSearch`    | `(value: string) => void` | required   |
+| `mode`        | `debounce \| button`      | `debounce` |
+| `debounceMs`  | `number`                  | `300`      |
+| `loading`     | `boolean`                 | `false`    |
+| `buttonLabel` | `string`                  | `Search`   |
+| `onClear`     | `() => void`              | —          |
 
 Extends `HTMLInputElement` attributes (`placeholder`, `disabled`, `value`, etc.).
 
 ## Notes
+
 - Has a built-in clear (×) button that appears when input is non-empty
 - In `debounce` mode, pressing Enter fires `onSearch` immediately (skips remaining debounce)
 - `value` + no `onChange` = controlled display but `onSearch` is still your source of truth

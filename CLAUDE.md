@@ -1,6 +1,6 @@
-# @fg-abc/ui — Agent Context
+# fg-design — Agent Context
 
-This is the `@fg-abc/ui` component library. It exports a set of React components built on Radix UI primitives, styled with Tailwind v4 design tokens.
+This is the `fg-design` component library. It exports a set of React components built on Radix UI primitives, styled with Tailwind v4 design tokens.
 
 **Start here:** [`docs/agents/index.md`](docs/agents/index.md) — tells you which component to reach for given a use case.
 

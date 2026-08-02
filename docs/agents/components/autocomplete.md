@@ -2,12 +2,12 @@
 
 Four searchable picker components for different selection needs.
 
-| Component | Selection | Create new? |
-|---|---|---|
-| `Autocomplete` | Single | No |
-| `MultiAutocomplete` | Multiple (tags) | No |
-| `CreatableAutocomplete` | Single | Yes |
-| `CreatableMultiAutocomplete` | Multiple (tags) | Yes |
+| Component                    | Selection       | Create new? |
+| ---------------------------- | --------------- | ----------- |
+| `Autocomplete`               | Single          | No          |
+| `MultiAutocomplete`          | Multiple (tags) | No          |
+| `CreatableAutocomplete`      | Single          | Yes         |
+| `CreatableMultiAutocomplete` | Multiple (tags) | Yes         |
 
 All accept `{ label: string; value: string }[]` as `options`.
 
@@ -16,7 +16,7 @@ All accept `{ label: string; value: string }[]` as `options`.
 ## Autocomplete (single)
 
 ```tsx
-import { Autocomplete } from "@fg-abc/ui";
+import { Autocomplete } from "fg-design";
 
 const OPTIONS = [
   { label: "Engineering", value: "eng" },
@@ -48,10 +48,15 @@ const [value, setValue] = React.useState<string | null>(null);
 `value` is `string[]`. Supports paste (splits on comma/newline/tab).
 
 ```tsx
-import { MultiAutocomplete } from "@fg-abc/ui";
+import { MultiAutocomplete } from "fg-design";
 
 const [values, setValues] = React.useState<string[]>([]);
-<MultiAutocomplete label="Tags" options={OPTIONS} value={values} onChange={setValues} />
+<MultiAutocomplete
+  label="Tags"
+  options={OPTIONS}
+  value={values}
+  onChange={setValues}
+/>;
 ```
 
 ---
@@ -61,10 +66,15 @@ const [values, setValues] = React.useState<string[]>([]);
 Shows a "Create '…'" option when the typed query doesn't match. `value` is the raw string (either an option value or a freeform string).
 
 ```tsx
-import { CreatableAutocomplete } from "@fg-abc/ui";
+import { CreatableAutocomplete } from "fg-design";
 
 const [value, setValue] = React.useState<string | null>(null);
-<CreatableAutocomplete label="Category" options={OPTIONS} value={value} onChange={setValue} />
+<CreatableAutocomplete
+  label="Category"
+  options={OPTIONS}
+  value={value}
+  onChange={setValue}
+/>;
 ```
 
 ---
@@ -74,29 +84,36 @@ const [value, setValue] = React.useState<string | null>(null);
 Combines multi-select with creation. Deduplicates case-insensitively.
 
 ```tsx
-import { CreatableMultiAutocomplete } from "@fg-abc/ui";
+import { CreatableMultiAutocomplete } from "fg-design";
 
 const [values, setValues] = React.useState<string[]>([]);
-<CreatableMultiAutocomplete label="Labels" options={OPTIONS} value={values} onChange={setValues} />
+<CreatableMultiAutocomplete
+  label="Labels"
+  options={OPTIONS}
+  value={values}
+  onChange={setValues}
+/>;
 ```
 
 ---
 
 ## Shared props
-| Prop | Type | Default |
-|---|---|---|
-| `options` | `{ label: string; value: string }[]` | required |
-| `value` | `string \| null` or `string[]` | — |
-| `onChange` | `(value) => void` | — |
-| `onSearch` | `(query: string) => void` | — |
-| `label` | `string` | — |
-| `error` | `string` | — |
-| `hint` | `string` | — |
-| `placeholder` | `string` | `Search…` |
-| `disabled` | `boolean` | `false` |
-| `modal` | `boolean` | `false` |
+
+| Prop          | Type                                 | Default   |
+| ------------- | ------------------------------------ | --------- |
+| `options`     | `{ label: string; value: string }[]` | required  |
+| `value`       | `string \| null` or `string[]`       | —         |
+| `onChange`    | `(value) => void`                    | —         |
+| `onSearch`    | `(query: string) => void`            | —         |
+| `label`       | `string`                             | —         |
+| `error`       | `string`                             | —         |
+| `hint`        | `string`                             | —         |
+| `placeholder` | `string`                             | `Search…` |
+| `disabled`    | `boolean`                            | `false`   |
+| `modal`       | `boolean`                            | `false`   |
 
 ## Notes
+
 - When `onSearch` is provided, client-side filtering is disabled — you own the `options` array
 - `onChange` fires with `null` (single) or `[]` (multi) when cleared
 - The clear (×) icon appears when a value is selected

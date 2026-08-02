@@ -3,7 +3,7 @@
 Five components covering the full text hierarchy. All use Inter Variable with design tokens — never hardcode sizes or colors.
 
 ```tsx
-import { Display, Heading, Text, Caption, LinkText } from "@fg-abc/ui";
+import { Display, Heading, Text, Caption, LinkText } from "fg-design";
 ```
 
 ---
@@ -18,11 +18,11 @@ Hero/marketing text. Not in the document outline — purely visual scale.
 <Display size="sm">The future of design</Display>
 ```
 
-| `size` | Font size |
-|---|---|
-| `sm` | 2rem / 32px |
+| `size`         | Font size      |
+| -------------- | -------------- |
+| `sm`           | 2rem / 32px    |
 | `md` (default) | 2.75rem / 44px |
-| `lg` | 3.5rem / 56px |
+| `lg`           | 3.5rem / 56px  |
 
 `as` prop overrides the rendered tag (default `p`).
 
@@ -42,12 +42,12 @@ Document headings h1–h4. `level` controls visual size; `as` controls the DOM t
 <Heading level={1} as="h2">Page title</Heading>
 ```
 
-| `level` | Size token | px |
-|---|---|---|
+| `level`     | Size token   | px   |
+| ----------- | ------------ | ---- |
 | 1 (default) | `--text-3xl` | 30px |
-| 2 | `--text-2xl` | 24px |
-| 3 | `--text-xl` | 20px |
-| 4 | `--text-lg` | 18px |
+| 2           | `--text-2xl` | 24px |
+| 3           | `--text-xl`  | 20px |
+| 4           | `--text-lg`  | 18px |
 
 ---
 
@@ -107,14 +107,14 @@ Smallest text level. Use for timestamps, metadata, table annotations, and helper
 
 Renders as `<span>` by default — safe inside block and inline contexts. Override with `as`.
 
-| `tone` | Color token | When to use |
-|---|---|---|
-| `default` | `--color-ink` | **Prefer this** — timestamps, metadata, annotations |
-| `muted` | `--color-muted` | Only when explicitly de-emphasised |
-| `subtle` | `--color-subtle` | Only when explicitly de-emphasised |
-| `danger` | `--color-danger` | Validation errors |
-| `success` | `--color-success` | Confirmations |
-| `accent` | `--color-accent-500` | Brand highlights |
+| `tone`    | Color token          | When to use                                         |
+| --------- | -------------------- | --------------------------------------------------- |
+| `default` | `--color-ink`        | **Prefer this** — timestamps, metadata, annotations |
+| `muted`   | `--color-muted`      | Only when explicitly de-emphasised                  |
+| `subtle`  | `--color-subtle`     | Only when explicitly de-emphasised                  |
+| `danger`  | `--color-danger`     | Validation errors                                   |
+| `success` | `--color-success`    | Confirmations                                       |
+| `accent`  | `--color-accent-500` | Brand highlights                                    |
 
 ---
 
@@ -140,9 +140,9 @@ Inline link. Always reads as interactive: accent color + underline. External lin
 </LinkText>
 ```
 
-| `size` | Default |
-|---|---|
-| `xs` / `sm` / `base` / `lg` | `base` |
+| `size`                      | Default |
+| --------------------------- | ------- |
+| `xs` / `sm` / `base` / `lg` | `base`  |
 
 ---
 

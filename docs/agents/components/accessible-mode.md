@@ -6,18 +6,14 @@ Manages an accessible mode for users who benefit from larger text, taller inputs
 
 ```tsx
 // app entry
-import { AccessibleModeProvider } from "@fg-abc/ui";
+import { AccessibleModeProvider } from "fg-design";
 
 export function App() {
-  return (
-    <AccessibleModeProvider>
-      {/* rest of app */}
-    </AccessibleModeProvider>
-  );
+  return <AccessibleModeProvider>{/* rest of app */}</AccessibleModeProvider>;
 }
 
 // anywhere in the tree
-import { useAccessibleMode } from "@fg-abc/ui";
+import { useAccessibleMode } from "fg-design";
 
 function AccessibleModeToggle() {
   const { accessibleMode, setAccessibleMode } = useAccessibleMode();
@@ -31,17 +27,17 @@ function AccessibleModeToggle() {
 
 ## Props — AccessibleModeProvider
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `defaultValue` | `boolean` | `false` | Initial value if nothing in localStorage |
-| `storageKey` | `string` | `"fgd-ui-accessible-mode"` | localStorage key |
-| `children` | `ReactNode` | — | Required |
+| Prop           | Type        | Default                    | Description                              |
+| -------------- | ----------- | -------------------------- | ---------------------------------------- |
+| `defaultValue` | `boolean`   | `false`                    | Initial value if nothing in localStorage |
+| `storageKey`   | `string`    | `"fgd-ui-accessible-mode"` | localStorage key                         |
+| `children`     | `ReactNode` | —                          | Required                                 |
 
 ## useAccessibleMode return value
 
-| Field | Type | Description |
-|---|---|---|
-| `accessibleMode` | `boolean` | Whether accessible mode is active |
+| Field               | Type                       | Description                       |
+| ------------------- | -------------------------- | --------------------------------- |
+| `accessibleMode`    | `boolean`                  | Whether accessible mode is active |
 | `setAccessibleMode` | `(value: boolean) => void` | Toggle + persists to localStorage |
 
 ## How it works
@@ -59,7 +55,7 @@ No per-component changes are needed — the CSS cascade handles everything.
 
 - Mount `AccessibleModeProvider` once at the app root, outside any router.
 - `useAccessibleMode` throws if called outside `AccessibleModeProvider`.
-- The library owns *what changes* visually. The app owns the toggle UI and where/how the preference is surfaced (settings page, onboarding, etc.).
+- The library owns _what changes_ visually. The app owns the toggle UI and where/how the preference is surfaced (settings page, onboarding, etc.).
 - Compose with `ThemeProvider` — the two are independent and can be nested in either order.
 
 ```tsx

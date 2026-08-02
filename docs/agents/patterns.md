@@ -1,6 +1,6 @@
 # Common Patterns
 
-Reusable compositions from @fg-abc/ui components. Copy and adapt.
+Reusable compositions from fg-design components. Copy and adapt.
 
 ---
 
@@ -9,7 +9,7 @@ Reusable compositions from @fg-abc/ui components. Copy and adapt.
 Stack fields with a consistent gap. The submit row always goes last with right-aligned actions.
 
 ```tsx
-import { Input, Textarea, FormSelect, Button } from "@fg-abc/ui";
+import { Input, Textarea, FormSelect, Button } from "fg-design";
 
 function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
   const [name, setName] = React.useState("");
@@ -18,7 +18,10 @@ function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
 
   return (
     <form
-      onSubmit={(e) => { e.preventDefault(); onSubmit(new FormData(e.currentTarget)); }}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(new FormData(e.currentTarget));
+      }}
       className="flex flex-col gap-4"
     >
       <Input
@@ -43,7 +46,9 @@ function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
         hint="Max 200 characters."
       />
       <div className="flex justify-end gap-2">
-        <Button variant="outline" type="button">Cancel</Button>
+        <Button variant="outline" type="button">
+          Cancel
+        </Button>
         <Button type="submit">Save</Button>
       </div>
     </form>
@@ -58,9 +63,13 @@ function UserForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
 The DataGrid is purely controlled — you own sort, page, and data state.
 
 ```tsx
-import { DataGrid, ColumnDef, SortState, PaginationState } from "@fg-abc/ui";
+import { DataGrid, ColumnDef, SortState, PaginationState } from "fg-design";
 
-interface Row { id: number; name: string; status: string; }
+interface Row {
+  id: number;
+  name: string;
+  status: string;
+}
 
 function MyTable() {
   const [sort, setSort] = React.useState<SortState | null>(null);
@@ -91,10 +100,16 @@ function MyTable() {
       rowKey={(r) => r.id}
       loading={loading}
       sort={sort}
-      onSort={(s) => { setSort(s); setPage(1); }}
+      onSort={(s) => {
+        setSort(s);
+        setPage(1);
+      }}
       pagination={{ page, pageSize, total }}
       onPageChange={setPage}
-      onPageSizeChange={(s) => { setPageSize(s); setPage(1); }}
+      onPageSizeChange={(s) => {
+        setPageSize(s);
+        setPage(1);
+      }}
       onRefetch={() => setPage((p) => p)} // re-trigger effect
     />
   );
@@ -108,9 +123,13 @@ function MyTable() {
 Use `datagrid` mode when rows contain editable cells. Cell renderers return inputs; the DataGrid handles add/delete.
 
 ```tsx
-import { DataGrid, ColumnDef } from "@fg-abc/ui";
+import { DataGrid, ColumnDef } from "fg-design";
 
-interface LineItem { id: number; name: string; qty: number; }
+interface LineItem {
+  id: number;
+  name: string;
+  qty: number;
+}
 
 function LineItemGrid() {
   const [rows, setRows] = React.useState<LineItem[]>([
@@ -120,7 +139,11 @@ function LineItemGrid() {
 
   const update = (id: number, field: keyof LineItem, val: string) =>
     setRows((prev) =>
-      prev.map((r) => r.id === id ? { ...r, [field]: field === "name" ? val : Number(val) } : r)
+      prev.map((r) =>
+        r.id === id
+          ? { ...r, [field]: field === "name" ? val : Number(val) }
+          : r,
+      ),
     );
 
   const columns: ColumnDef<LineItem>[] = [
@@ -157,8 +180,12 @@ function LineItemGrid() {
       rows={rows}
       rowKey={(r) => r.id}
       datagrid
-      onAddRow={() => setRows((prev) => [...prev, { id: nextId.current++, name: "", qty: 1 }])}
-      onDeleteRow={(row) => setRows((prev) => prev.filter((r) => r.id !== row.id))}
+      onAddRow={() =>
+        setRows((prev) => [...prev, { id: nextId.current++, name: "", qty: 1 }])
+      }
+      onDeleteRow={(row) =>
+        setRows((prev) => prev.filter((r) => r.id !== row.id))
+      }
     />
   );
 }
@@ -169,7 +196,17 @@ function LineItemGrid() {
 ## Confirmation modal
 
 ```tsx
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalDescription, ModalBody, ModalFooter, Button } from "@fg-abc/ui";
+import {
+  Modal,
+  ModalTrigger,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  ModalDescription,
+  ModalBody,
+  ModalFooter,
+  Button,
+} from "fg-design";
 
 function DeleteButton({ onConfirm }: { onConfirm: () => void }) {
   return (
@@ -186,7 +223,9 @@ function DeleteButton({ onConfirm }: { onConfirm: () => void }) {
           <Modal.Close asChild>
             <Button variant="outline">Cancel</Button>
           </Modal.Close>
-          <Button variant="danger" onClick={onConfirm}>Delete</Button>
+          <Button variant="danger" onClick={onConfirm}>
+            Delete
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
@@ -202,11 +241,11 @@ Mount `Toaster` once at your app root, then call `toast()` anywhere.
 
 ```tsx
 // app root
-import { Toaster } from "@fg-abc/ui";
-<Toaster position="bottom-right" />
+import { Toaster } from "fg-design";
+<Toaster position="bottom-right" />;
 
 // anywhere
-import { toast } from "@fg-abc/ui";
+import { toast } from "fg-design";
 toast.success("Saved successfully");
 toast.error("Something went wrong");
 toast("Info message");
@@ -222,11 +261,13 @@ toast("With action", {
 When options come from an API, pass `onSearch` and control the `options` array yourself.
 
 ```tsx
-import { Autocomplete } from "@fg-abc/ui";
+import { Autocomplete } from "fg-design";
 
 function UserPicker() {
   const [value, setValue] = React.useState<string | null>(null);
-  const [options, setOptions] = React.useState<{ label: string; value: string }[]>([]);
+  const [options, setOptions] = React.useState<
+    { label: string; value: string }[]
+  >([]);
 
   const search = React.useCallback(async (query: string) => {
     const results = await api.searchUsers(query);
@@ -251,14 +292,30 @@ function UserPicker() {
 ## Stat card row
 
 ```tsx
-import { StatCard } from "@fg-abc/ui";
+import { StatCard } from "fg-design";
 import { Users } from "lucide-react";
 
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-  <StatCard label="Total users" value="12,430" delta={8.2} deltaLabel="vs last month" icon={<Users className="h-5 w-5" />} />
-  <StatCard label="Revenue" value="$84,200" delta={-2.1} deltaLabel="vs last month" />
-  <StatCard label="Churn" value="1.4%" delta={-0.3} deltaLabel="vs last month" />
-</div>
+  <StatCard
+    label="Total users"
+    value="12,430"
+    delta={8.2}
+    deltaLabel="vs last month"
+    icon={<Users className="h-5 w-5" />}
+  />
+  <StatCard
+    label="Revenue"
+    value="$84,200"
+    delta={-2.1}
+    deltaLabel="vs last month"
+  />
+  <StatCard
+    label="Churn"
+    value="1.4%"
+    delta={-0.3}
+    deltaLabel="vs last month"
+  />
+</div>;
 ```
 
 ---
@@ -266,15 +323,21 @@ import { Users } from "lucide-react";
 ## Search + table
 
 ```tsx
-import { SearchBar, DataGrid } from "@fg-abc/ui";
+import { SearchBar, DataGrid } from "fg-design";
 
 function SearchableTable() {
   const [query, setQuery] = React.useState("");
-  const filtered = rows.filter((r) => r.name.toLowerCase().includes(query.toLowerCase()));
+  const filtered = rows.filter((r) =>
+    r.name.toLowerCase().includes(query.toLowerCase()),
+  );
 
   return (
     <div className="flex flex-col gap-3">
-      <SearchBar onSearch={setQuery} placeholder="Search…" className="max-w-xs" />
+      <SearchBar
+        onSearch={setQuery}
+        placeholder="Search…"
+        className="max-w-xs"
+      />
       <DataGrid columns={columns} rows={filtered} rowKey={(r) => r.id} />
     </div>
   );

@@ -3,7 +3,7 @@
 Vertical list layout for simple item collections.
 
 ```tsx
-import { List, ListItem } from "@fg-abc/ui";
+import { List, ListItem } from "fg-design";
 
 // Gapped list
 <List>
@@ -36,13 +36,15 @@ import { List, ListItem } from "@fg-abc/ui";
 ```
 
 ## List props
-| Prop | Type | Default |
-|---|---|---|
-| `divided` | `boolean` | `false` |
-| `gap` | `none \| xs \| sm \| md` | `sm` |
-| `emptyState` | `ReactNode` | — |
+
+| Prop         | Type                     | Default |
+| ------------ | ------------------------ | ------- |
+| `divided`    | `boolean`                | `false` |
+| `gap`        | `none \| xs \| sm \| md` | `sm`    |
+| `emptyState` | `ReactNode`              | —       |
 
 ## Notes
+
 - `ListItem` is a `<li>` with `flex items-center gap-3` — put your content directly inside
 - `divided` overrides `gap` — dividers handle spacing
 - For clickable rows in a list, use `DataGrid` with `onRowClick` instead
