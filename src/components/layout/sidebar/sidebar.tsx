@@ -118,7 +118,6 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
               "relative flex flex-col h-full border-r border-[var(--color-overlay)]",
               "bg-[var(--color-canvas)]",
               !isDragging && "transition-all duration-[var(--duration-slow)] ease-[var(--ease-out)]",
-              "overflow-hidden",
               "hidden md:flex",
               className,
             )}
@@ -173,7 +172,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
               <div
                 onMouseDown={handleMouseDown}
                 className={cn(
-                  "absolute top-0 right-0 h-full w-1 cursor-col-resize z-10",
+                  "absolute top-0 -right-[2px] h-full w-[5px] cursor-col-resize z-10",
                   "hover:bg-[var(--color-accent-500)] transition-colors duration-[var(--duration-fast)]",
                   isDragging && "bg-[var(--color-accent-500)]",
                 )}
