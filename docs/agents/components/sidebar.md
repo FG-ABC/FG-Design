@@ -146,15 +146,19 @@ function UserFooter({ collapsed }: { collapsed: boolean }) {
 
 ## Props — Sidebar
 
-| Prop                | Type                   | Default   | Description                                               |
-| ------------------- | ---------------------- | --------- | --------------------------------------------------------- |
-| `collapsed`         | `boolean`              | `false`   | Desktop icon-rail state                                   |
-| `onCollapsedChange` | `(v: boolean) => void` | —         | Renders collapse toggle button at bottom when provided    |
-| `open`              | `boolean`              | `false`   | Mobile drawer open state                                  |
-| `onOpenChange`      | `(v: boolean) => void` | —         | Enables the mobile drawer when provided                   |
-| `width`             | `string`               | `"240px"` | Expanded width                                            |
-| `header`            | `ReactNode`            | —         | Pinned above scroll area, receives border-b automatically |
-| `footer`            | `ReactNode`            | —         | Pinned below scroll area, receives border-t automatically |
+| Prop                | Type                   | Default          | Description                                               |
+| ------------------- | ---------------------- | ---------------- | --------------------------------------------------------- |
+| `collapsed`         | `boolean`              | `false`          | Desktop icon-rail state                                   |
+| `onCollapsedChange` | `(v: boolean) => void` | —                | Renders collapse toggle button at bottom when provided    |
+| `open`              | `boolean`              | `false`          | Mobile drawer open state                                  |
+| `onOpenChange`      | `(v: boolean) => void` | —                | Enables the mobile drawer when provided                   |
+| `width`             | `string`               | `"240px"`        | Expanded width (ignored when `resizable` is true)         |
+| `header`            | `ReactNode`            | —                | Pinned above scroll area, receives border-b automatically |
+| `footer`            | `ReactNode`            | —                | Pinned below scroll area, receives border-t automatically |
+| `resizable`         | `boolean`              | `false`          | Adds a drag handle on the right edge (desktop only)       |
+| `defaultWidth`      | `number`               | parsed from `width` | Initial pixel width when resizable                   |
+| `onWidthChange`     | `(width: number) => void` | —             | Fires with new pixel value on each drag move              |
+| `storageKey`        | `string`               | `"sidebar-width"` | localStorage key to persist width; `""` to disable      |
 
 ## Props — SidebarItem
 
@@ -179,6 +183,27 @@ function UserFooter({ collapsed }: { collapsed: boolean }) {
 | `open`         | `boolean`              | —       |
 | `onOpenChange` | `(v: boolean) => void` | —       |
 
+## Resizable sidebar
+
+Add `resizable` to get a drag handle on the right edge. Width is clamped to 180–400px and persisted to localStorage automatically.
+
+```tsx
+<Sidebar
+  resizable
+  defaultWidth={240}
+  storageKey="app-sidebar-width"
+  collapsed={collapsed}
+  onCollapsedChange={setCollapsed}
+>
+  ...
+</Sidebar>
+```
+
+- The drag handle is desktop-only — the mobile drawer is unaffected.
+- The handle is hidden when the sidebar is in collapsed/icon-rail mode.
+- Set `storageKey=""` to disable persistence.
+- Use `onWidthChange` if you need to sync the width to external state.
+
 ## Decision rules
 
 - **Navigation items:** wrap `SidebarItem` with `<Link>` for routing. Do NOT do `<Link><SidebarItem>` with a `<button>` inside — `<a><button>` is invalid HTML and browsers will break the layout. Instead wrap the outer `<div>` that `SidebarItem` renders, which is valid. The active dot and tooltip both work correctly this way.
@@ -187,3 +212,4 @@ function UserFooter({ collapsed }: { collapsed: boolean }) {
 - `SidebarGroup` auto-closes when the desktop sidebar collapses to icon-rail.
 - Place `SidebarTrigger` in a slim top bar (≈48px) that's only shown on mobile (`md:hidden`).
 - Pass `collapsed` down to `header`/`footer` slot components so they can adapt their layout for icon-rail mode.
+- Use `resizable` instead of a fixed `width` when users should control the sidebar width. Don't combine `resizable` with a controlled `width` string — `width` is ignored when resizable is on.

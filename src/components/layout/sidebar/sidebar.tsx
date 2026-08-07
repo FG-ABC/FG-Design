@@ -23,6 +23,9 @@ function useSidebar() {
 
 // ─── Sidebar ──────────────────────────────────────────────────────────────────
 
+const RESIZE_MIN = 180;
+const RESIZE_MAX = 400;
+
 export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   collapsed?: boolean;
   onCollapsedChange?: (collapsed: boolean) => void;
@@ -31,6 +34,10 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   width?: string;
   header?: React.ReactNode;
   footer?: React.ReactNode;
+  resizable?: boolean;
+  defaultWidth?: number;
+  onWidthChange?: (width: number) => void;
+  storageKey?: string;
 }
 
 export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
@@ -45,10 +52,59 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
       header,
       footer,
       children,
+      resizable = false,
+      defaultWidth,
+      onWidthChange,
+      storageKey = "sidebar-width",
       ...props
     },
     ref,
   ) => {
+    const getInitialWidth = () => {
+      if (resizable && storageKey) {
+        const stored = typeof window !== "undefined" ? localStorage.getItem(storageKey) : null;
+        if (stored) return parseInt(stored, 10);
+      }
+      return defaultWidth ?? (parseInt(width, 10) || 240);
+    };
+
+    const [resizeWidth, setResizeWidth] = React.useState<number>(getInitialWidth);
+    const [isDragging, setIsDragging] = React.useState(false);
+    const dragStartX = React.useRef(0);
+    const dragStartWidth = React.useRef(0);
+
+    const handleMouseDown = React.useCallback(
+      (e: React.MouseEvent) => {
+        e.preventDefault();
+        dragStartX.current = e.clientX;
+        dragStartWidth.current = resizeWidth;
+        setIsDragging(true);
+      },
+      [resizeWidth],
+    );
+
+    React.useEffect(() => {
+      if (!isDragging) return;
+
+      const onMouseMove = (e: MouseEvent) => {
+        const delta = e.clientX - dragStartX.current;
+        const next = Math.min(RESIZE_MAX, Math.max(RESIZE_MIN, dragStartWidth.current + delta));
+        setResizeWidth(next);
+        onWidthChange?.(next);
+        if (storageKey) localStorage.setItem(storageKey, String(next));
+      };
+
+      const onMouseUp = () => setIsDragging(false);
+
+      window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("mouseup", onMouseUp);
+      return () => {
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("mouseup", onMouseUp);
+      };
+    }, [isDragging, onWidthChange, storageKey]);
+
+    const resolvedWidth = resizable ? `${resizeWidth}px` : width;
     const ctx = React.useMemo<SidebarCtx>(() => ({ collapsed }), [collapsed]);
 
     return (
@@ -57,11 +113,11 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
         <SidebarContext.Provider value={ctx}>
           <aside
             ref={ref}
-            style={{ width: collapsed ? "56px" : width }}
+            style={{ width: collapsed ? "56px" : resolvedWidth }}
             className={cn(
-              "flex flex-col h-full border-r border-[var(--color-overlay)]",
+              "relative flex flex-col h-full border-r border-[var(--color-overlay)]",
               "bg-[var(--color-canvas)]",
-              "transition-all duration-[var(--duration-slow)] ease-[var(--ease-out)]",
+              !isDragging && "transition-all duration-[var(--duration-slow)] ease-[var(--ease-out)]",
               "overflow-hidden",
               "hidden md:flex",
               className,
@@ -111,6 +167,18 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
                   <PanelLeftClose className="h-4 w-4" />
                 )}
               </button>
+            )}
+
+            {resizable && !collapsed && (
+              <div
+                onMouseDown={handleMouseDown}
+                className={cn(
+                  "absolute top-0 right-0 h-full w-1 cursor-col-resize z-10",
+                  "hover:bg-[var(--color-accent-500)] transition-colors duration-[var(--duration-fast)]",
+                  isDragging && "bg-[var(--color-accent-500)]",
+                )}
+                aria-hidden
+              />
             )}
           </aside>
         </SidebarContext.Provider>

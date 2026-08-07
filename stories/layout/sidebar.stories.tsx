@@ -211,6 +211,35 @@ export const MobileDrawer: Story = {
   },
 };
 
+// ─── Resizable ────────────────────────────────────────────────────────────────
+
+export const Resizable: Story = {
+  render: () => {
+    const [collapsed, setCollapsed] = React.useState(false);
+
+    return (
+      <div className="flex h-screen bg-[var(--color-canvas)]">
+        <Sidebar
+          resizable
+          defaultWidth={240}
+          storageKey="story-sidebar-width"
+          collapsed={collapsed}
+          onCollapsedChange={setCollapsed}
+          header={<WorkspaceHeader collapsed={collapsed} />}
+          footer={<UserFooter collapsed={collapsed} />}
+        >
+          <NavContent active="dashboard" />
+        </Sidebar>
+        <main className="flex-1 overflow-auto p-8">
+          <p className="text-sm text-[var(--color-subtle)]">
+            Drag the right edge of the sidebar to resize it (180px – 400px). Width is persisted to localStorage.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
 // ─── Full layout (desktop + mobile together) ──────────────────────────────────
 
 export const FullLayout: Story = {

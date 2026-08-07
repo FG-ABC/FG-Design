@@ -15,4 +15,4 @@ This is the `fg-design` component library. It exports a set of React components 
 
 - Never hardcode hex colors or raw pixel values. Use design tokens. See [`docs/agents/tokens.md`](docs/agents/tokens.md).
 - Import directly from the component path, not the barrel, when inside this repo: `@/components/core/button`
-- Consumers import from the package: `import { Button } from "@fgd/ui"`
+- Consumers import from the package: `import { Button } from "fg-design`
