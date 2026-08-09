@@ -116,7 +116,7 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
             style={{ width: collapsed ? "56px" : resolvedWidth }}
             className={cn(
               "relative flex flex-col h-full border-r border-[var(--color-overlay)]",
-              "bg-[var(--color-canvas)]",
+              "bg-[var(--color-canvas)] overflow-x-clip",
               !isDragging && "transition-all duration-[var(--duration-slow)] ease-[var(--ease-out)]",
               "hidden md:flex",
               className,
